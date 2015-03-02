@@ -2,7 +2,7 @@ class AllocationsController < ApplicationController
 
   def new
     @allocation = Allocation.new
-    @users = Invoice.first.users
+    @users = User.all
   end
 
   def create
