@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20150302130802) do
   enable_extension "plpgsql"
 
   create_table "allocations", force: :cascade do |t|
-    t.integer  "group_id"
+    t.integer  "invoice_id"
     t.integer  "user_id"
     t.integer  "percentage"
     t.datetime "created_at", null: false

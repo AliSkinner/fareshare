@@ -1,7 +1,7 @@
 class CreateAllocations < ActiveRecord::Migration
   def change
     create_table :allocations do |t|
-      t.integer :group_id
+      t.integer :invoice_id
       t.integer :user_id
       t.integer :percentage
 
