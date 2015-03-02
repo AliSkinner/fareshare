@@ -13,7 +13,14 @@ class InvoicesController < ApplicationController
   end
 
   def create 
-    @invoice = Invoice.create()
+    @invoice = Invoice.create(invoice_params)
+  end
+
+  
+
+  private
+  def invoice_params
+    params.require(:invoice).permit(:name, :amount, :description, :group_id, :description)
   end
 
 end
