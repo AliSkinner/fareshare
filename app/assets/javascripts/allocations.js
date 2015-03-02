@@ -12,3 +12,11 @@ function createAllocation(form){
       console.log(data)    
     })
 }
+$(function (){
+  $('#master').on('click', function(){
+    $('form').each(function() {
+      $form = $(this)
+        createAllocation($form); 
+    })
+  })
+})
