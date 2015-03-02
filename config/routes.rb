@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   resources :invoices
   resources :allocations
   resources :groups
