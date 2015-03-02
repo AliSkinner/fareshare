@@ -2,13 +2,21 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.all
-    @users = User.all
+    @group = Group.new
+    respond_to do |format|
+      format.html
+      format.json {render json: @groups}
+    end
+  end
+
+  def new
     @group = Group.new
   end
 
   def create
     @group=Group.create(group_params)
-    redirect_to groups_path
+    render json: @group, status: :created
+    # redirect_to groups_path
   end
 
   def edit
@@ -22,7 +30,7 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name, :description)
+    params.require(:group).permit(:name, :description, {user_ids:[]})
   end
 
 end

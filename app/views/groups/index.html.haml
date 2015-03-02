@@ -1,12 +1,7 @@
 .container
   %h1 Fareshare Group Page
 
-
--#   %p You're currently a member of these groups:
--#   - @groups.each do |group|
--#     %p= group.name
-
-- form_for(@group) do |f|
+= form_for(@group) do |f|
       
   %p
     .field
@@ -29,6 +24,8 @@
   %p
     .actions
       = f.submit :class => "submit"
+
+%p.group-list Your Group 
 
 
 
