@@ -14,6 +14,7 @@ class InvoicesController < ApplicationController
 
   def create 
     @invoice = Invoice.create(invoice_params)
+    redirect_to invoices_path
   end
 
   
