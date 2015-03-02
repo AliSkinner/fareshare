@@ -38,3 +38,9 @@ i10 = Invoice.create(name: "New TV", amount: 1000, group_id: g1.id)
 i11 = Invoice.create(name: "Retirement Gift", amount: 500, group_id: g5.id)
 i12 = Invoice.create(name: "Birthday Present", amount: 500, group_id: g4.id)
 i13 = Invoice.create(name: "Birthday Meal", amount: 500, group_id: g4.id)
+
+g1.users << u1
+g1.users << u2
+g1.users << u3
+
+puts "seed success"
