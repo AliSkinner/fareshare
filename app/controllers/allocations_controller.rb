@@ -2,6 +2,7 @@ class AllocationsController < ApplicationController
 
   def new 
     @allocation = Allocation.new
+    @users = Group.first.users
   end
 
   def create 
