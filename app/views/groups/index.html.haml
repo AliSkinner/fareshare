@@ -1,0 +1,19 @@
+.container
+  %h1 Fareshare Group Page
+
+  %p You're currently a member of these groups:
+  - @groups.each do |group|
+    %p= group.name
+
+  %p These are all the people you know
+  - @users.each do |user|
+    %p= user.name
+
+  %label ghj
+  %input{type: "text", id: "new-group"}
+  %button 
+
+
+
+
+
