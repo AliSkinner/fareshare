@@ -1,13 +1,13 @@
 class AllocationsController < ApplicationController
 
-  def new 
+  def new
     @allocation = Allocation.new
-    @users = Group.first.users
+    @users = Invoice.first.users
   end
 
-  def create 
+  def create
     @allocation = Allocation.create(allocation_params)
-    redirect_to invoices_path
+    render json: @allocation, status: :created
   end
 
   def edit
