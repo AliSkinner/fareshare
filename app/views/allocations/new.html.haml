@@ -1,9 +1,8 @@
 %h3 CREATE NEW ALLOCATION!
-- @users.each do |user|
+-# - @users.each do |user|
   = form_for @allocation do |f|
-    %p= f.hidden_field :user_id, value: user.id, :class => 'user-name'
-    %p= f.hidden_field :invoice_id, value: user.invoices.first.id, :class => 'invoice-name'
-    %p= f.label :percentage
-    %p= f.text_field :percentage, :class => 'allocation-percentage'
-    %p= f.submit 'ADD YOUR allocation!!!!', :class => 'submit_allocation'
+    = f.hidden_field :user_id, value: user.id, :class => 'user-name'
+    = f.hidden_field :invoice_id, value: user.invoices.first.id, :class => 'invoice-name'
+    = f.label_tag :percentage
+    = f.text_field :percentage, :class => 'allocation-percentage'
 %button#master CLICK
