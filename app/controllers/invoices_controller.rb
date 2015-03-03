@@ -1,6 +1,6 @@
 class InvoicesController < ApplicationController
 
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
     @invoices = Invoice.all
@@ -25,7 +25,8 @@ class InvoicesController < ApplicationController
 
   def update
     @invoice = Invoice.update(invoice_params)
-    redirect_to invoices_path
+    # redirect_to invoices_path
+    render json: @invoice, status: :updated
   end
 
   def destroy

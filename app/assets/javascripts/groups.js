@@ -3,7 +3,6 @@ function createGroup(){
   var $name = $('#group_name').val();
   var $description = $('#group_description').val();
   var $members = $(":checked");
-
   var user_ids = [];
 
   $.each($members, function(index,checkbox) {
@@ -18,7 +17,6 @@ function createGroup(){
       group: {
         name: $name,
         description: $description,
-       
       },
       user:{
         user_ids: user_ids
@@ -37,18 +35,46 @@ function createGroup(){
   })
 }
 
+function payInvoice(id){
+console.log(id)
+var paid = $()
+  $.ajax({
+    url: "/invoices",
+    method: 'PUT',
+    dataType: 'json',
+    data: {invoice:{amount:$amount}
+    {invoice: id},
+    }).done(function(response){
+  });
+}
+
 $(function(){
-  console.log("hello")
+  // console.log("hello")
   $('#new_group.new_group').on('submit', function(){
     event.preventDefault();
     createGroup();
-  $('#pay-invoices').on('submit', function(){
+  });
+
+  $('.pay-invoice').on('click', function(e){
     event.preventDefault();
-    payInvoice();
-  console.log("hereIam");
-  })
+    var id = $(this).data("id");
+    console.log(id);
+    payInvoice(id);
   })
 })
+
+// rr.
+// PUT      /invoices/:id(.:format)                invoices#update
+
+
+// function appendDatShiz(task){
+//   $('<li class="'+ (task.done == true ? "completed" : "") + '">'+
+//   '<input class="toggle" type="checkbox" data-id="'+ task.id +'" '+ (task.done == true ? 'checked="checked"' : "") + '>'+
+//   '<label>'+ task.title +'</label>'+
+//   '<button class="destroy" data-id="'+ task.id +'"></button>'+
+//   '</li>').prependTo("#todo-list")
+// }
+
 
 // create a function that creates a gruop
 // get the value of the text box -- group name
