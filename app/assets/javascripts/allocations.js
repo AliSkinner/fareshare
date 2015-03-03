@@ -24,18 +24,27 @@ $(function (){
   })
 })
 
+
+
+
+// $(function(){
+//   $('input[type="text"]').on('change', function(){
+//     var sum = 0;
+//     var total = $(this).each(function(){
+//       sum += $(this).val()
+//     })
+//     console.log(total.val())
+//     });
+// });
+
+
 $(function(){
   $('input[type="text"]').on('change', function(){
-    console.log($(this).val())
-    });
-});
-  
+    var sum = 0;
+    var total = $('input[type="text"]').each(function(){
+    sum += parseFloat($(this).val())
+    console.log(sum)
+    })
+  })
+})
 
-  // $('.price').blur(function () {
-  //     var sum = 0;
-  //     $('.price').each(function() {
-  //         sum += Number($(this).val());
-  //     });
-
-  //     // here, you have your sum
-  // });​​​​​​​​​
