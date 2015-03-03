@@ -11,7 +11,10 @@
       %tr
         %td= invoice.name
         %td= invoice.amount
-        %td= invoice.due_date.to_formatted_s(:long)
+        - if invoice.due_date
+          %td= invoice.due_date.to_formatted_s(:long)
+          else
+          end
 
 
   
