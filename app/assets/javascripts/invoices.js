@@ -1,7 +1,7 @@
 function createinvoice() {
-  $name = $('.invoice-name')
-  $description = $('.invoice-description')
-  $group = $('.invoice-group')
-  $amount = $('.invoice-amount')
-  $due_date = $('.invoice-duedate')
+  $name = $('.invoice-name').val()
+  $description = $('.invoice-description').val()
+  $group = $('.invoice-group').val()
+  $amount = $('.invoice-amount').val()
+  $due_date = $('.invoice-duedate').val()
 }
