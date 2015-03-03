@@ -13,16 +13,16 @@ g3 = Group.create(name: "Holiday")
 g4 = Group.create(name: "Birthday Party")
 g5 = Group.create(name: "Retirement Party")
 
-u1 = User.create(name: "Tom Smith", balance: 0)
-u2 = User.create(name: "John Jones", balance: 0)
-u3 = User.create(name: "Tim Davies", balance: 0)
-u4 = User.create(name: "Barry Grape", balance: 0)
-u5 = User.create(name: "Jack Quaid", balance: 0)
-u6 = User.create(name: "Klaus Brown", balance: 0)
-u7 = User.create(name: "Claude White", balance: 0)
-u8 = User.create(name: "Barry Grey", balance: 0)
-u9 = User.create(name: "Sarah Smithson", balance: 0)
-u10 = User.create(name: "Jenny Jackson", balance: 0)
+u1 = User.create(email: 'tomsmith@email.com', password: 'password', password_confirmation: 'password',name: "Tom Smith", balance: 0)
+u2 = User.create(email: 'johnjones@email.com', password: 'password', password_confirmation: 'password',name: "John Jones", balance: 0)
+u3 = User.create(email: 'timdavies@email.com', password: 'password', password_confirmation: 'password',name: "Tim Davies", balance: 0)
+u4 = User.create(email: 'barrygrape@email.com', password: 'password', password_confirmation: 'password',name: "Barry Grape", balance: 0)
+u5 = User.create(email: 'jackquaid@email.com', password: 'password', password_confirmation: 'password',name: "Jack Quaid", balance: 0)
+u6 = User.create(email: 'klausbrown@email.com', password: 'password', password_confirmation: 'password',name: "Klaus Brown", balance: 0)
+u7 = User.create(email: 'claudewhite@email.com', password: 'password', password_confirmation: 'password',name: "Claude White", balance: 0)
+u8 = User.create(email: 'barrygrey@email.com', password: 'password', password_confirmation: 'password',name: "Barry Grey", balance: 0)
+u9 = User.create(email: 'sarahsmithson@email.com', password: 'password', password_confirmation: 'password',name: "Sarah Smithson", balance: 0)
+u10 = User.create(email: 'jennyjackson@email.com', password: 'password', password_confirmation: 'password',name: "Jenny Jackson", balance: 0)
 
 
 i1 = Invoice.create(name: "Gas", amount: 500, group_id: g1.id)
@@ -39,8 +39,12 @@ i11 = Invoice.create(name: "Retirement Gift", amount: 500, group_id: g5.id)
 i12 = Invoice.create(name: "Birthday Present", amount: 500, group_id: g4.id)
 i13 = Invoice.create(name: "Birthday Meal", amount: 500, group_id: g4.id)
 
+<<<<<<< HEAD
 g1.users << u1
 g1.users << u2
 g1.users << u3
 
 puts "seed success"
+=======
+g1.users << u1 << u2
+>>>>>>> 6aab4025c10a2ea7e98191cae88126e44257b4f2

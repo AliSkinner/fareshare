@@ -1,0 +1,8 @@
+%h1= @user.name
+= image_tag(@user.gravatar_url)
+
+%h3= mail_to @user.email
+
+%p Balance: #{@user.balance.to_i}
+
+
