@@ -1,4 +1,4 @@
-%h3 CREATE NEW ALLOCATION!
+%h3 Create Allocation for your invoice
 - @users.each do |user|
   = form_for @allocation do |f|
     = f.hidden_field :user_id, value: user.id, :class => 'user-name'

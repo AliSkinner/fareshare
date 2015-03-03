@@ -12,10 +12,10 @@ function createInvoice() {
       method: "POST",
       datatype: 'json',
       data: {invoice:{name:$name, description:$description, group_id:$group, amount:$amount,due_date:$date}}
-    }).done(function(data){
+    }).done(function(){
+      window.location = "/allocations/new"
     })
 }
-
 $(function() {
   $('#invoice-master').on('click', function() {
     createInvoice();
