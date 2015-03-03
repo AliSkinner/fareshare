@@ -27,8 +27,6 @@ function createGroup(){
   }).done(function(response){
     console.log(response)
      $('<p>' + response.name + '<button class="delete" data-id='+ response.id +'>Delete</button></p>').prependTo('p.group-list')
-  }).fail(function(error){
-    console.log(error)
   })
 }
 
