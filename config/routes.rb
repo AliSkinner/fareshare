@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :invoices
   resources :allocations
   resources :groups
+
   root "users#show"
 
   # The priority is based upon order of creation: first created -> highest priority.
