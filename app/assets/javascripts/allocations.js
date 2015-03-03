@@ -1,5 +1,4 @@
 function createAllocation(form){
-
   $percentage = form.find('input[type="text"]').val()
   $user = form.find('input[class="user-name"]').val()
   $invoice = $('.invoice-name').val()
