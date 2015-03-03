@@ -1,4 +1,6 @@
 %h3 Create Allocation for your invoice
+%h4 Your Invoice: #{current_user.invoices.last.name}
+%h4 Your Invoice amount: #{current_user.invoices.last.amount}
 - @users.each do |user|
   = form_for @allocation do |f|
     = f.label user.name 
