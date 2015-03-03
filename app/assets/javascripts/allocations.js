@@ -1,5 +1,4 @@
 function createAllocation(form){
-
   $percentage = form.find('input[type="text"]').val()
   $user = form.find('input[class="user-name"]').val()
   $invoice = $('.invoice-name').val()
@@ -13,7 +12,7 @@ function createAllocation(form){
     })
 }
 $(function (){
-  $('#master').on('click', function(){
+  $('#allocation-master').on('click', function(){
     $('form').each(function() {
       $form = $(this)
         createAllocation($form); 
