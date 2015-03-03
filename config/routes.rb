@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   resources :invoices
   resources :allocations
   resources :groups
-  
-  root "users#index"
+  resources :welcome
+  root "welcome#index"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
