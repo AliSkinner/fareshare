@@ -5,4 +5,14 @@
   %ul
     - @group.users.each do |user| 
       %li= user.name 
+
+  %table
+    - @group.invoices.each do |invoice|
+      %tr
+        %td= invoice.name
+        %td= invoice.amount
+        %td= invoice.due_date.to_formatted_s(:long)
+
+
   
+

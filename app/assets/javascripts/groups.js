@@ -28,15 +28,15 @@ function createGroup(){
       }
     }
   }).done(function(response){
-     $("h2.newgroup").html("")
-     $('<h2> Your group ' + response.name + ' is created. <button class="delete" data-id='+ response.id +'>Delete</button></h2>').appendTo('h2.new-group')
-     $('<p>' + response.description + '</p>' ).appendTo('h2.new-group')
-     $('<a href="/groups/'  + response.id + '">check out the group</a>').appendTo('h2.new-group')
-     console.log(response)
-     $.each(response.users, function(index, user){
-       console.log(user)
-       $('<p>' + user.name + '</p>').appendTo('h2.new-group')
-     });
+    // $('#results')('');
+    $('<h2> Your group ' + response.name + ' is created. <button class="delete" data-id='+ response.id +'>Delete</button></h2>').appendTo('h2.new-group')
+    $('<p>' + response.description + '</p>' ).appendTo('h2.new-group')
+    $('<a href="/groups/'  + response.id + '">check out the group</a>').appendTo('h2.new-group')
+  console.log(response)
+    $.each(response.users, function(index, user){
+  console.log(user)
+    $('<p>' + user.name + '</p>').appendTo('h2.new-group')
+   });
   })
 }
 
