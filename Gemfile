@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'haml-rails'
 gem 'devise'
 gem 'gravtastic'
+gem 'omniauth-google-oauth2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
