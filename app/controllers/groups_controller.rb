@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group=Group.create(group_params)
+    @group = Group.create(group_params)
     render json: @group, status: :created
     # redirect_to groups_path
   end
