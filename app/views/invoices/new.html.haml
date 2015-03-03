@@ -21,6 +21,8 @@
     .field
       = f.label :due_date
       %br
-      = f.date_select :due_date, :order => [:day, :month, :year]
-%button#master SUBMIT NEW INVOICE
+      = f.date_select :due_date, {:order => [:day, :month, :year]}
+
+      =f.submit 'submit'
+%button#invoice-master SUBMIT NEW INVOICE
 

@@ -15,7 +15,9 @@ class InvoicesController < ApplicationController
   end
 
   def create 
+    binding.pry
     @invoice = Invoice.create(invoice_params)
+    # render json: @invoice, status: :created
     redirect_to invoices_path
   end
 
@@ -36,7 +38,7 @@ class InvoicesController < ApplicationController
 
   private
   def invoice_params
-    params.require(:invoice).permit(:name, :amount, :description, :group_id, :description)
+    params.require(:invoice).permit(:name, :amount, :description, :group_id, :description, :due_date)
   end
 
 end
