@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
+    
     @user = User.create(user_params)
     redirect_to user_path
   end

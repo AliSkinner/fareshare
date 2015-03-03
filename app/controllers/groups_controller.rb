@@ -15,6 +15,10 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.create(group_params)
+    @users=params[:user][:user_ids]
+    @users.each do |user|
+      @group.users << User.find(user)
+    end
     render json: @group, status: :created
     # redirect_to groups_path
   end
@@ -27,6 +31,10 @@ class GroupsController < ApplicationController
     @group = Group.update(group_params)
     redirect_to groups_path
   end
+
+  # def show
+  #   @group = Group.find(params[:id])
+  # end
 
   private
   def group_params
