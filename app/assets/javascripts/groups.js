@@ -1,34 +1,36 @@
 function createGroup(){
  
-  $name = $('#group_name').val();
-  $description = $('#group_description').val();
-  // var group = {
-  //   name: $name,
-  //   description: $description
-  // }
-  // console.log(group.name)
-  // $members = $(":checked");
-  // var member_ids = $.each($members, function(index,value){
-  //   $members[index].value})
-  //   members: $members
-  // }; 
-    $.ajax({
-      url: "/groups",
-      method: 'POST',
-      dataType: 'json',
-      data: { 
-        group: {
-          name: $name,
-          description: $description
-        }
+  var $name = $('#group_name').val();
+  var $description = $('#group_description').val();
+  var $members = $(":checked");
+
+
+  var user_ids = [];
+
+  $.each($members, function(index,checkbox) {
+    user_ids.push(checkbox.value);
+  });
+
+  console.log(user_ids);
+
+  $.ajax({
+    url: "/groups",
+    method: 'POST',
+    dataType: 'json',
+    data: { 
+      group: {
+        name: $name,
+        description: $description,
+        user_ids: user_ids
       }
-    }).done(function(response){
-      console.log(response)
-       $('<p>' + response.name + '<button class="delete" data-id='+ response.id +'>Delete</button></p>').prependTo('p.group-list')
-    }).fail(function(error){
-      console.log(error)
-    })
-  }
+    }
+  }).done(function(response){
+    console.log(response)
+     $('<p>' + response.name + '<button class="delete" data-id='+ response.id +'>Delete</button></p>').prependTo('p.group-list')
+  }).fail(function(error){
+    console.log(error)
+  })
+}
 
 $(function(){
   console.log("hello")
@@ -37,6 +39,7 @@ $(function(){
     createGroup();
   })
 })
+
 // create a function that creates a gruop
 // get the value of the text box -- group name
 // make an ajax request to url /groups POST 
