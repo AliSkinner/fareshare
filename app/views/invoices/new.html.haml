@@ -17,11 +17,11 @@
       = f.label :amount
       %br
       = f.text_field :amount, :class => 'invoice-amount'  
-  %p
+  %span.datetime
     .field
       = f.label :due_date
       %br
-      = f.date_select :due_date, {:order => [:day, :month, :year]}, {:class => "invoice-duedate"}
+      = f.date_select :due_date, :order => [:day, :month, :year]
   %p
     .actions
       = f.submit :class => "submit"
