@@ -24,26 +24,12 @@ $(function (){
   })
 })
 
-
-
-
-// $(function(){
-//   $('input[type="text"]').on('change', function(){
-//     var sum = 0;
-//     var total = $(this).each(function(){
-//       sum += $(this).val()
-//     })
-//     console.log(total.val())
-//     });
-// });
-
-
 $(function(){
   $('input[type="text"]').on('change', function(){
     var sum = 0;
-    var total = $('input[type="text"]').each(function(){
-    sum += parseFloat($(this).val())
-    console.log(sum)
+    $('input[type="text"]').each(function(number){
+    var total = sum += parseFloat($(this).val())
+    console.log(total)
     })
   })
 })
