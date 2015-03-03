@@ -5,4 +5,23 @@
   %ul
     - @group.users.each do |user| 
       %li= user.name 
-  
+
+  %table
+    %tr
+      %th Invoice
+      %th Amount
+      %th Due Date
+      %th Status
+    - @group.invoices.each do |invoice|  
+      %tr
+        %td= invoice.name
+        %td= invoice.amount
+        - if invoice.due_date
+          %td= invoice.due_date.strftime("%d %b. %Y") 
+        %td 
+          %button#pay-invoices Pay this Bill
+        %td
+          %a{:href => "https://www.britishgas.co.uk/Login/Login-Verify/"} British Gas
+
+        
+      
