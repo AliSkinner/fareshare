@@ -7,6 +7,6 @@
     %br
     = f.hidden_field :user_id, value: user.id, :class => 'user-name'
     = f.hidden_field :invoice_id, value: current_user.invoices.last.id, :class => 'invoice-name'
-    = f.label :percentage
-    = f.text_field :percentage, :class => 'allocation-percentage'
-%button#master Submit Allocation
+    = f.label :share
+    = f.text_field :share, :class => 'allocation-share'
+%button#allocation-master Submit Allocation
