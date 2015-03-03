@@ -7,7 +7,7 @@ function createInvoice() {
   $due_date_day = $('#invoice_due_date_3i').val()
   $due_date_month = $('#invoice_due_date_2i').val()
   $due_date_year = $('#invoice_due_date_1i').val()
-  $date = new Date($due_date_year, ($due_date_month + 1), $due_date_day)
+  $date = new Date($due_date_year, ($due_date_month - 1), ($due_date_day))
   console.log('vaz')
     $.ajax({
       url: "/invoices",
