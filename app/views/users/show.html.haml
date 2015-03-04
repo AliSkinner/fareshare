@@ -13,11 +13,13 @@
     %table
       %tr
         %th Invoice
+        %th Group
         %th Amount
         %th Your share to pay:
       - @allocations.each do |allocation|  
         %tr
           %td= allocation.invoice.name
+          %td= allocation.invoice.group.name
           %td= allocation.invoice.amount
           %td= allocation.share
 -else
