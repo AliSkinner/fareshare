@@ -16,20 +16,19 @@
       %th Amount
       %th Due Date
       %th Status
-    - @group.invoices.each do |invoice|  
-      %tr
-        %td.invoice-name= invoice.name
-        %td.invoice-amount= invoice.amount
-
-        %td= invoice.name
-        %td £#{invoice.amount}
-        - if invoice.due_date
-          %td= invoice.due_date.strftime("%d %b. %Y") 
-        %td 
-          = link_to('pay this invoice', invoice, class: "pay-invoice", :data => { :id => invoice.id})
-         
-        %td
-          %a{:href => "https://www.britishgas.co.uk/Login/Login-Verify/"} British Gas
+    - @group.invoices.each do |invoice|    
+      - if invoice.paid == nil
+        %tr
+          %td.invoice-name= invoice.name
+          %td.invoice-amount £#{invoice.amount}
+          - if invoice.due_date
+            %td= invoice.due_date.strftime("%d %b. %Y") 
+          //need to make sure that date cell is filled to keep columns aligned
+          %td 
+            = link_to('pay this invoice', invoice, class: "pay-invoice", :data => { :id => invoice.id})
+       
+      %td
+        -# %a{:href => "https://www.britishgas.co.uk/Login/Login-Verify/"} British Gas
 
         
       
