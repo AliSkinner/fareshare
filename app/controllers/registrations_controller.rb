@@ -2,7 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
-    binding.pry
+    # binding.pry
     UserMailer.registration_confirmation(current_user).deliver
   end
  
