@@ -5,6 +5,10 @@
   %ul
     - @group.users.each do |user| 
       %li= user.name 
+  %h3
+    Your total amount owed is:
+    %span.total_invoices_amount
+      £#{@total_amount}
 
   %table
     %tr
@@ -15,7 +19,7 @@
     - @group.invoices.each do |invoice|  
       %tr
         %td= invoice.name
-        %td= invoice.amount
+        %td £#{invoice.amount}
         - if invoice.due_date
           %td= invoice.due_date.strftime("%d %b. %Y") 
         %td 
