@@ -5,31 +5,35 @@
   %h3= mail_to @user.email
 
   -if current_user.id == @user.id
-    -if @total_share_amount != nil
-      %p Balance: #{@total_share_amount }
+    .user-groups
+      - @user.groups.each do |group|
+        %p.groups= link_to group.name, group_path(group)
 
-      %h3 View your outstanding invoices!:
+      -if @total_share_amount != nil
+        %p Balance: #{@total_share_amount }
 
-      %table
-        %tr
-          %th Invoice
-          %th.hidden Allocation Id
-          %th Group
-          %th.hidden Group Id
-          %th Amount
-          %th Your share to pay:
-          %th Pay now
-        - @allocations.each do |allocation|  
+        %h3 View your outstanding invoices!:
+
+        %table
           %tr
-            %td= allocation.invoice.name
-            %td.hidden= allocation.id
-            %td= allocation.invoice.group.name
-            %td.hidden= allocation.invoice.group.id
-            %td= allocation.invoice.amount
-            %td= allocation.share
-            %td
-              %button.pay-user-invoice Pay this invoice!
-    -else
-      %p Nothing to pay now!
+            %th Invoice
+            %th.hidden Allocation Id
+            %th Group
+            %th.hidden Group Id
+            %th Amount
+            %th Your share to pay:
+            %th Pay now
+          - @allocations.each do |allocation|  
+            %tr
+              %td= allocation.invoice.name
+              %td.hidden= allocation.id
+              %td= allocation.invoice.group.name
+              %td.hidden= allocation.invoice.group.id
+              %td= allocation.invoice.amount
+              %td= allocation.share
+              %td
+                %button.pay-user-invoice Pay this invoice!
+      -else
+        %p Nothing to pay now!
 
 
