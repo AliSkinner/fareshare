@@ -13,16 +13,18 @@
     %table
       %tr
         %th Invoice
-        %th Allocation Id
+        %th.hidden Allocation Id
         %th Group
+        %th.hidden Group Id
         %th Amount
         %th Your share to pay:
         %th Pay now
       - @allocations.each do |allocation|  
         %tr
           %td= allocation.invoice.name
-          %td= allocation.id
+          %td.hidden= allocation.id
           %td= allocation.invoice.group.name
+          %td.hidden= allocation.invoice.group.id
           %td= allocation.invoice.amount
           %td= allocation.share
           %td
