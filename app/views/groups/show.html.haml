@@ -14,8 +14,8 @@
       %th Status
     - @group.invoices.each do |invoice|  
       %tr
-        %td= invoice.name
-        %td= invoice.amount
+        %td.invoice-name= invoice.name
+        %td.invoice-amount= invoice.amount
         - if invoice.due_date
           %td= invoice.due_date.strftime("%d %b. %Y") 
         %td 

@@ -23,7 +23,7 @@ function createGroup(){
       }
     }
   }).done(function(response){
-   
+    
     $('<h2> Your group ' + response.name + ' is created. <button class="delete" data-id='+ response.id +'>Delete</button></h2>').appendTo('h2.new-group')
     $('<p>' + response.description + '</p>' ).appendTo('h2.new-group')
     $('<a href="/groups/'  + response.id + '">check out the group</a>').appendTo('h2.new-group')
@@ -35,16 +35,20 @@ function createGroup(){
   })
 }
 
-function payInvoice(id){
-console.log(id)
-var paid = $()
+function payInvoice(id, paid) {
+  console.log(id);
   $.ajax({
-    url: "/invoices",
+    url: "/invoices/" + id,
     method: 'PUT',
     dataType: 'json',
-    data: {invoice:{amount:$amount}
-    {invoice: id},
-    }).done(function(response){
+    data: { 
+      invoice: {
+        paid_status: paid
+      }
+    }
+  })
+  .done(function(response) {
+    console.log(response);
   });
 }
 
@@ -56,10 +60,12 @@ $(function(){
   });
 
   $('.pay-invoice').on('click', function(e){
-    event.preventDefault();
+    e.preventDefault();
     var id = $(this).data("id");
+    var paid = true
+    //NEED TO MAKE SURE YOU CAN ONLY CLICK THIS ONCE!!!
     console.log(id);
-    payInvoice(id);
+    payInvoice(id, paid);
   })
 })
 

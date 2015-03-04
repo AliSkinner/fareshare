@@ -24,6 +24,7 @@ class InvoicesController < ApplicationController
   end
 
   def update
+    binding.pry
     @invoice = Invoice.update(invoice_params)
     # redirect_to invoices_path
     render json: @invoice, status: :updated
