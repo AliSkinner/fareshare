@@ -40,6 +40,7 @@ class GroupsController < ApplicationController
     unpaid_invoice_amounts = unpaid_invoices.map {|invoice| invoice.amount }
     @total_amount = unpaid_invoice_amounts.reduce(:+) 
     @balance = @group.balance
+
   end
 
   private

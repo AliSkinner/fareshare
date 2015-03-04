@@ -1,4 +1,10 @@
 class RegistrationsController < Devise::RegistrationsController
+
+  def create
+    super
+    # binding.pry
+    UserMailer.registration_confirmation(current_user).deliver
+  end
  
   private
  
