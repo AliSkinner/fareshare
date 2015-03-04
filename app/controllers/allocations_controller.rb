@@ -22,6 +22,7 @@ class AllocationsController < ApplicationController
     balance = @allocation.invoice.group.balance
     balance = 0 if balance.nil? 
     new_balance = balance + amount 
+    @allocation.invoice.group.update_balance(new_balance)
     binding.pry
     render json: @allocation
   end
