@@ -1,1 +1,19 @@
-Invoice created.....!!!!!
+/ %h2
+/   Hi, 
+/   / - binding.pry
+/   = user.name
+  
+/ %h4 
+/   You have a new invoice!
+
+/ %p
+/   The invoice is from 
+/   = user.invoices.last.group.name 
+/   and is £
+/   = user.invoices.last.amount 
+/   in total.
+
+/ %p
+/   You owe £
+/   = user.allocations.last.share
+

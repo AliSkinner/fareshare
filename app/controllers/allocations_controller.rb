@@ -8,7 +8,8 @@ class AllocationsController < ApplicationController
   def create
     @allocation = Allocation.create(allocation_params)
     UserMailer.invoice_create(@allocation.invoice.group).deliver
-    render json: @allocation, status: :created    
+    # render json: @allocation, status: :created 
+    redirect_to group_path(@allocation.invoice.group)   
   end
 
   def edit
