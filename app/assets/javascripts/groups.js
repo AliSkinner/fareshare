@@ -43,7 +43,7 @@ function payInvoice(id, paid) {
     dataType: 'json',
     data: { 
       invoice: {
-        paid_status: paid
+        paid: paid
       }
     }
   })

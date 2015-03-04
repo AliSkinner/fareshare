@@ -24,8 +24,8 @@ class InvoicesController < ApplicationController
   end
 
   def update
-    binding.pry
-    @invoice = Invoice.update(invoice_params)
+    @invoice = Invoice.find(params[:id])
+    @invoice.update(invoice_params)
     # redirect_to invoices_path
     render json: @invoice, status: :updated
   end
@@ -38,7 +38,7 @@ class InvoicesController < ApplicationController
 
   private
   def invoice_params
-    params.require(:invoice).permit(:name, :amount, :description, :group_id, :description, :due_date)
+    params.require(:invoice).permit(:name, :amount, :description, :group_id, :description, :due_date, :paid)
   end
 
 end
