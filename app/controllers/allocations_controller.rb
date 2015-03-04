@@ -27,7 +27,7 @@ class AllocationsController < ApplicationController
 
   private
   def allocation_params
-    params.require(:allocation).permit(:invoice_id, :user_id, :share)
+    params.require(:allocation).permit(:invoice_id, :user_id, :share, :paid)
   end
 
 end
