@@ -62,9 +62,12 @@ $(function(){
   $('.pay-invoice').on('click', function(e){
     e.preventDefault();
     var id = $(this).data("id");
-    var paid = true
-    //NEED TO MAKE SURE YOU CAN ONLY CLICK THIS ONCE!!!
-    console.log(id);
+    var paid = true; 
+    $(this).replaceWith("<td>Paid</td>")
+    // var parent = $(".pay-invoice").parent()
+    // parent.empty();
+    // parent.text("Your invoice has been paid");
+    // console.log(id);
     payInvoice(id, paid);
   })
 })
