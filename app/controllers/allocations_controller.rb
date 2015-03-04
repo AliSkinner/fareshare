@@ -15,8 +15,8 @@ class AllocationsController < ApplicationController
   end
 
   def update
-    binding.pry
-    @allocation = Allocation.update(allocation_params)
+    @allocation = Allocation.find(params[:id])
+    @allocation.update(allocation_params)
     render json: @allocation
   end
 
@@ -30,7 +30,5 @@ class AllocationsController < ApplicationController
   def allocation_params
     params.require(:allocation).permit(:invoice_id, :user_id, :share, :paid)
   end
-  def allocation_update_params
-    params.require(:allocation)
 
 end
