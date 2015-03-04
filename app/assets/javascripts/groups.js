@@ -72,6 +72,7 @@ $(function(){
 })
 
 
+
 // create a function that creates a gruop
 // get the value of the text box -- group name
 // make an ajax request to url /groups POST 
