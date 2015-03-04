@@ -57,17 +57,6 @@ function userPayInvoice(id, paid, share) {
   })
 }
 
-// function userPayInvoice(id, amount) {
-//   $.ajax({
-//     url: "/groups/" + id,
-//     method: 'PUT',
-//     dataType: 'json',
-//     data: {group:{amount: paid}}
-//   }).done(function(response) {
-//     console.log(response);
-//   })
-// }
-
 
 
 $(function(){
