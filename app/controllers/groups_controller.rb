@@ -36,13 +36,16 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    invoice_amounts = @group.invoices.map {|invoice| invoice.amount}
-    @total_amount = invoice_amounts.reduce(:+) 
+    unpaid_invoices = @group.invoices.select {|invoice| invoice.paid == false }
+    unpaid_invoice_amounts = unpaid_invoices.map {|invoice| invoice.amount }
+    @total_amount = unpaid_invoice_amounts.reduce(:+) 
+    @balance = @group.balance
+
   end
 
   private
   def group_params
-    params.require(:group).permit(:name, :description, {user_ids:[]})
+    params.require(:group).permit(:name, :description, :balance, {user_ids:[]})
   end
 
 end

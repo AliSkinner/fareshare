@@ -24,13 +24,74 @@ $(function (){
   })
 })
 
+function validateTotals() {
+  var sum = 0;
+  var total = 0;
+  var invoiceAmount = $('.invoice-amount').text();
+  var $submitButton = $('#allocation-master');
+
+  $('.allocation-share').each(function(number){
+    total = sum += parseFloat($(this).val())
+  })
+  if (total === parseInt(invoiceAmount)) {
+    $submitButton.removeClass('hidden');
+  } else {
+    $submitButton.addClass('hidden');
+  }
+}
+
 $(function(){
-  $('input[type="text"]').on('change', function(){
-    var sum = 0;
-    $('input[type="text"]').each(function(number){
-    var total = sum += parseFloat($(this).val())
-    console.log(total)
-    })
+  $('.allocation-share').on('keyup', function(){
+    validateTotals();
   })
 })
+
+function userPayInvoiceShare(id, paid) {
+  $.ajax({
+    url: "/allocations/" + id,
+    method: 'PUT',
+    dataType: 'json',
+    data: {allocation:{paid: paid}}
+  }).done(function(response) {
+    console.log(response);
+  })
+}
+function userPayInvoiceStatus(id, paid) {
+  $.ajax({
+    url: "/allocations/" + id,
+    method: 'PUT',
+    dataType: 'json',
+    data: {allocation:{paid: paid}}
+  }).done(function(response) {
+    console.log(response);
+  })
+}
+function userPayInvoiceStatus(id, amount) {
+  $.ajax({
+    url: "/groups/" + id,
+    method: 'PUT',
+    dataType: 'json',
+    data: {group:{amount: paid}}
+  }).done(function(response) {
+    console.log(response);
+  })
+}
+
+
+
+$(function(){
+  $('.pay-user-invoice').on('click', function(e){
+    var allocation_id_row = $(this).parent().parent().children()[1]
+    var allocation_id = $(allocation_id_row).text()
+    var amount_owed_row = $(this).parent().parent().children()[5]
+    var amount_owed = parseInt($(amount_owed_row).text())
+    var group_id_row = $(this).parent().parent().children()[3]
+    var group_id = parseInt($(group_id_row).text())
+    var paid = true;
+    $(this).replaceWith("<td>Paid</td>")
+    userPayInvoiceStatus(allocation_id, paid);
+    userPayInvoiceShare(group_id,amount_owed)
+  })
+})
+
 

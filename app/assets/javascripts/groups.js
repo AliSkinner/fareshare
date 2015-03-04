@@ -3,7 +3,6 @@ function createGroup(){
   var $name = $('#group_name').val();
   var $description = $('#group_description').val();
   var $members = $(":checked");
-
   var user_ids = [];
 
   $.each($members, function(index,checkbox) {
@@ -18,14 +17,13 @@ function createGroup(){
       group: {
         name: $name,
         description: $description,
-       
       },
       user:{
         user_ids: user_ids
       }
     }
   }).done(function(response){
-   
+    
     $('<h2> Your group ' + response.name + ' is created. <button class="delete" data-id='+ response.id +'>Delete</button></h2>').appendTo('h2.new-group')
     $('<p>' + response.description + '</p>' ).appendTo('h2.new-group')
     $('<a href="/groups/'  + response.id + '">check out the group</a>').appendTo('h2.new-group')
@@ -37,18 +35,42 @@ function createGroup(){
   })
 }
 
+function payInvoice(id, paid, amount) {
+  // console.log(id);
+  $.ajax({
+    url: "/invoices/" + id,
+    method: 'PUT',
+    dataType: 'json',
+    data: { 
+      invoice: {
+        paid: paid
+      }
+    }
+  })
+  .done(function(response) {
+  console.log(response);
+  $(response).appendTo('<span#updated-bank-balance>')
+  })
+}
+
 $(function(){
-  console.log("hello")
+  // console.log("hello")
   $('#new_group.new_group').on('submit', function(){
     event.preventDefault();
     createGroup();
-  $('#pay-invoices').on('submit', function(){
-    event.preventDefault();
-    payInvoice();
-  console.log("hereIam");
-  })
+  });
+
+  $('.pay-invoice').on('click', function(e){
+    e.preventDefault();
+    var id = $(this).data("id");
+    var paid = true; 
+    var amount = $(this).data("amount");
+    $(this).replaceWith("<td>Paid</td>")
+    payInvoice(id, paid, amount);
   })
 })
+
+
 
 // create a function that creates a gruop
 // get the value of the text box -- group name

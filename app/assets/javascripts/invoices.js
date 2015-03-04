@@ -1,4 +1,4 @@
-function createInvoice() {
+ function createInvoice() {
   $name = $('.invoice-name').val()
   $description = $('.invoice-description').val()
   $group = $('.invoice-group').val()
@@ -11,7 +11,7 @@ function createInvoice() {
       url: "/invoices",
       method: "POST",
       datatype: 'json',
-      data: {invoice:{name:$name, description:$description, group_id:$group, amount:$amount,due_date:$date}}
+      data: {invoice:{name:$name, description:$description, group_id:$group, amount:$amount,due_date:$date, paid:false}}
     }).done(function(){
       window.location = "/allocations/new"
     })

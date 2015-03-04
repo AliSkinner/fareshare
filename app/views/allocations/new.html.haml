@@ -7,8 +7,8 @@
   = form_for @allocation do |f|
     = f.label user.name 
     %br
-    = f.hidden_field :user_id, value: user.id, :class => 'user-name'
-    = f.hidden_field :invoice_id, value: current_user.invoices.last.id, :class => 'invoice-name'
+    = f.hidden_field :user_id, value: user.id, class: 'user-name'
+    = f.hidden_field :invoice_id, value: current_user.invoices.last.id, class: 'invoice-name'
     = f.label :share
-    = f.text_field :share, :class => 'allocation-share'
-%button#allocation-master Submit Allocation
+    = f.text_field :share, class: 'allocation-share', value: 0
+%button#allocation-master.hidden Submit Allocation
