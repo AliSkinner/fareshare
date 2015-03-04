@@ -9,6 +9,10 @@
     Your total amount owed is:
     %span.total_invoices_amount
       £#{@total_amount}
+    Your total bank balance is:
+    %span.total_balance
+      £#{@balance}
+    
 
   %table
     %tr
@@ -28,7 +32,7 @@
           //need to make sure that date cell is filled to keep columns aligned
           -# %td.button-pay-invoice
           %td{ class: "#{invoice.id}" }
-            %button.pay-invoice{:data => {:id => invoice.id}} Pay this Invoice Now
+            %button.pay-invoice{data: {id: invoice.id, amount: invoice.amount} } Pay this Invoice Now
 
 
       

@@ -35,8 +35,8 @@ function createGroup(){
   })
 }
 
-function payInvoice(id, paid) {
-  console.log(id);
+function payInvoice(id, paid, amount) {
+  // console.log(id);
   $.ajax({
     url: "/invoices/" + id,
     method: 'PUT',
@@ -48,8 +48,19 @@ function payInvoice(id, paid) {
     }
   })
   .done(function(response) {
-    console.log(response);
-  });
+    // console.log(response.amount);
+    // $.ajax({
+    //   url: "/groups/" + id,
+    //   method: 'PUT',
+    //   dataType: 'json',
+    //   data: {
+    //     group: { 
+    //       balance: 
+
+    //     }
+    //   }
+    // })
+  })
 }
 
 $(function(){
@@ -63,8 +74,9 @@ $(function(){
     e.preventDefault();
     var id = $(this).data("id");
     var paid = true; 
+    var amount = $(this).data("amount");
     $(this).replaceWith("<td>Paid</td>")
-    payInvoice(id, paid);
+    payInvoice(id, paid, amount);
   })
 })
 

@@ -25,9 +25,12 @@ class InvoicesController < ApplicationController
 
   def update
     @invoice = Invoice.find(params[:id])
+    amount = @invoice.amount
     @invoice.update(invoice_params)
-    # redirect_to invoices_path
-    render json: @invoice, status: :updated
+    new_balance = @invoice.group.balance - amount
+    @invoice.group.update_balance(new_balance)
+    render json: new_balance, status: :created
+    # render json: @invoice, status: :created
   end
 
   def destroy
