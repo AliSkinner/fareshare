@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @allocations = User.allocations
+    @allocations = @user.allocations
   end
 
   def new
