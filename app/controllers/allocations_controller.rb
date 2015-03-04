@@ -8,6 +8,8 @@ class AllocationsController < ApplicationController
   def create
     @allocation = Allocation.create(allocation_params)
     render json: @allocation, status: :created
+    UserMailer.invoice_create(@allocation.invoice.group).deliver
+
   end
 
   def edit

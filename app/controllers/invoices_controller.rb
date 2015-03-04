@@ -15,9 +15,10 @@ class InvoicesController < ApplicationController
   end
 
   def create 
-    binding.pry
+    # binding.pry
     @invoice = Invoice.create(invoice_params)
     render json: @invoice, status: :created
+
   end
 
   def edit
