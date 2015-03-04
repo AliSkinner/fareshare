@@ -1,4 +1,4 @@
-function createInvoice() {
+ function createInvoice() {
   $name = $('.invoice-name').val()
   $description = $('.invoice-description').val()
   $group = $('.invoice-group').val()

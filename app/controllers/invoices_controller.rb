@@ -1,6 +1,6 @@
 class InvoicesController < ApplicationController
 
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
     @invoices = Invoice.all
@@ -26,8 +26,13 @@ class InvoicesController < ApplicationController
   end
 
   def update
-    @invoice = Invoice.update(invoice_params)
-    redirect_to invoices_path
+    @invoice = Invoice.find(params[:id])
+    amount = @invoice.amount
+    @invoice.update(invoice_params)
+    new_balance = @invoice.group.balance - amount
+    @invoice.group.update_balance(new_balance)
+    render json: new_balance, status: :created
+    # render json: @invoice, status: :created
   end
 
   def destroy
