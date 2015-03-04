@@ -69,18 +69,6 @@ $(function(){
   })
 })
 
-// rr.
-// PUT      /invoices/:id(.:format)                invoices#update
-
-
-// function appendDatShiz(task){
-//   $('<li class="'+ (task.done == true ? "completed" : "") + '">'+
-//   '<input class="toggle" type="checkbox" data-id="'+ task.id +'" '+ (task.done == true ? 'checked="checked"' : "") + '>'+
-//   '<label>'+ task.title +'</label>'+
-//   '<button class="destroy" data-id="'+ task.id +'"></button>'+
-//   '</li>').prependTo("#todo-list")
-// }
-
 
 // create a function that creates a gruop
 // get the value of the text box -- group name
