@@ -56,6 +56,16 @@ function userPayInvoiceShare(id, paid) {
     console.log(response);
   })
 }
+function userPayInvoiceStatus(id, paid) {
+  $.ajax({
+    url: "/allocations/" + id,
+    method: 'PUT',
+    dataType: 'json',
+    data: {allocation:{paid: paid}}
+  }).done(function(response) {
+    console.log(response);
+  })
+}
 
 
 
@@ -63,9 +73,12 @@ $(function(){
   $('.pay-user-invoice').on('click', function(e){
     var id_row = $(this).parent().parent().children()[1]
     var id = $(id_row).text()
+    var amount_owed_row = $(this).parent().parent().children()[3]
+    var amount_owed = parseInt($(amount_owed_row).text())
     var paid = true;
     $(this).replaceWith("<td>Paid</td>")
-    userPayInvoiceShare(id, paid);
+    userPayInvoiceStatus(id, paid);
+    userPayInvoiceShare(amount_owed)
   })
 })
 
