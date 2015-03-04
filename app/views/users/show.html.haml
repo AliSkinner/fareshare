@@ -23,7 +23,7 @@
         %tr
           %td= allocation.invoice.name
           %td.hidden= allocation.id
-          %td= allocation.invoice.group.name
+          %td= link_to allocation.invoice.group.name, group_path(allocation.invoice.group)
           %td.hidden= allocation.invoice.group.id
           %td= allocation.invoice.amount
           %td= allocation.share
