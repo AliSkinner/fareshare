@@ -46,36 +46,26 @@ $(function(){
   })
 })
 
-// function userPayInvoiceShare(id, paid) {
-//   console.log(id);
-//   $.ajax({
-//     url: "/invoices/" + id,
-//     method: 'PUT',
-//     dataType: 'json',
-//     data: { 
-//       invoice: {
-//         paid: paid
-//       }
-//     }
-//   })
-//   .done(function(response) {
-//     console.log(response);
-//   });
-// }
+function userPayInvoiceShare(id, paid) {
+  $.ajax({
+    url: "/allocations/" + id,
+    method: 'PUT',
+    dataType: 'json',
+    data: {allocation:{paid: paid}}
+  }).done(function(response) {
+    console.log(response);
+  })
+}
 
-// $('.pay-invoice').on('click', function(e){
-//     e.preventDefault();
-//     var id = $(this).data("id");
-//     var paid = true; 
-//     $(this).replaceWith("<td>Paid</td>")
-//     payInvoice(id, paid);
-//   })
+
 
 $(function(){
   $('.pay-user-invoice').on('click', function(e){
     var id_row = $(this).parent().parent().children()[1]
     var id = $(id_row).text()
-    console.log(id)
+    var paid = true;
+    $(this).replaceWith("<td>Paid</td>")
+    userPayInvoiceShare(id, paid);
   })
 })
 
