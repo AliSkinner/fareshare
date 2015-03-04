@@ -13,7 +13,7 @@
       datatype: 'json',
       data: {invoice:{name:$name, description:$description, group_id:$group, amount:$amount,due_date:$date, paid:false}}
     }).done(function(){
-      window.location = "/allocations/new"
+      window.location = window.location.origin + "/allocations/new"
     })
 }
 $(function() {
