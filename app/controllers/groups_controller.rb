@@ -37,7 +37,8 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     unpaid_invoices = @group.invoices.select {|invoice| invoice.paid == false }
-    unpaid_invoice_amounts = unpaid_invoices.map {|invoice| invoice.amount }
+    unpaid_invoice_not_nil = unpaid_invoices.select {|invoice| invoice.amount != nil }
+    unpaid_invoice_amounts = unpaid_invoice_not_nil.map {|invoice| invoice.amount}
     @total_amount = unpaid_invoice_amounts.reduce(:+) 
     @balance = @group.balance
 
