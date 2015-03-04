@@ -19,7 +19,9 @@ class AllocationsController < ApplicationController
     @allocation = Allocation.find(params[:id])
     amount = @allocation.share
     @allocation.update(allocation_params)
-    new_balance = @allocation.invoice.group.balance 
+    balance = @allocation.invoice.group.balance
+    balance = 0 if balance.nil? 
+    new_balance = balance + amount 
     binding.pry
     render json: @allocation
   end
