@@ -24,13 +24,25 @@ $(function (){
   })
 })
 
+function validateTotals() {
+  var sum = 0;
+  var total = 0;
+  var invoiceAmount = $('.invoice-amount').text();
+  var $submitButton = $('#allocation-master');
+
+  $('.allocation-share').each(function(number){
+    total = sum += parseFloat($(this).val())
+  })
+  if (total === parseInt(invoiceAmount)) {
+    $submitButton.removeClass('hidden');
+  } else {
+    $submitButton.addClass('hidden');
+  }
+}
+
 $(function(){
-  $('input[type="text"]').on('change', function(){
-    var sum = 0;
-    $('input[type="text"]').each(function(number){
-    var total = sum += parseFloat($(this).val())
-    console.log(total)
-    })
+  $('.allocation-share').on('keyup', function(){
+    validateTotals();
   })
 })
 
