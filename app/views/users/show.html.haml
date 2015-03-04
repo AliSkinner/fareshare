@@ -13,6 +13,7 @@
     %table
       %tr
         %th Invoice
+        %th Invoice Id
         %th Group
         %th Amount
         %th Your share to pay:
@@ -20,11 +21,13 @@
       - @allocations.each do |allocation|  
         %tr
           %td= allocation.invoice.name
+          %td= allocation.invoice.id
           %td= allocation.invoice.group.name
           %td= allocation.invoice.amount
           %td= allocation.share
           %td
-    %button#pay-user-invoice Pay off your debts!
+            %button.pay-user-invoice Pay this invoice!
+    
 
 -else
   %h1 SORRY, YOU CANNOT VIEW OTHER USER'S INFORMATION!

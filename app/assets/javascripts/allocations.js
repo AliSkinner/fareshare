@@ -63,9 +63,20 @@ $(function(){
 //   });
 // }
 
+// $('.pay-invoice').on('click', function(e){
+//     e.preventDefault();
+//     var id = $(this).data("id");
+//     var paid = true; 
+//     $(this).replaceWith("<td>Paid</td>")
+//     payInvoice(id, paid);
+//   })
+
 $(function(){
-  $('#pay-user-invoice').on('click', function(){
-    console.log('hello')
+  $('.pay-user-invoice').on('click', function(e){
+    var id_row = $(this).parent().parent().children()[1]
+    var id = $(id_row).text()
+    console.log(id)
   })
 })
+
 
