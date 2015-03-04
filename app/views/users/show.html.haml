@@ -16,12 +16,16 @@
         %th Group
         %th Amount
         %th Your share to pay:
+        %th Pay now
       - @allocations.each do |allocation|  
         %tr
           %td= allocation.invoice.name
           %td= allocation.invoice.group.name
           %td= allocation.invoice.amount
           %td= allocation.share
+          %td
+    %button#pay-user-invoice Pay off your debts!
+
 -else
   %h1 SORRY, YOU CANNOT VIEW OTHER USER'S INFORMATION!
           
