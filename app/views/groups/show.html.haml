@@ -6,11 +6,12 @@
     - @group.users.each do |user| 
       %li= user.name 
   %h3
-    Your total amount owed is:
+    Your group's total outstanding invoices are:
     %span.total_invoices_amount
       £#{@total_amount}
-    Your bank balance is:
+    Your group's available cash is:
     %span#updated-bank-balance
+      £#{@balance}
 
   %table
     %tr
