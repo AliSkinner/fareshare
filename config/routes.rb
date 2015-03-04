@@ -2,13 +2,13 @@ Rails.application.routes.draw do
 
   # devise_for :users, :controllers => { registrations: 'registrations' }
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-
+  
   resources :users
   resources :invoices
   resources :allocations
   resources :groups
   resources :welcome
-  root "welcome#index"
+  root 'welcome#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
