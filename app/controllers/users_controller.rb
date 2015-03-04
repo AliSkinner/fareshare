@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     @allocations = @user.allocations
     unpaid_shares = @allocations.select {|allocation| allocation.paid != true }
     each_user_share = unpaid_shares.map {|allocation| allocation.share}
-    binding.pry
     @total_share_amount = each_user_share.reduce(:+)
   end
 
