@@ -48,18 +48,8 @@ function payInvoice(id, paid, amount) {
     }
   })
   .done(function(response) {
-    // console.log(response.amount);
-    // $.ajax({
-    //   url: "/groups/" + id,
-    //   method: 'PUT',
-    //   dataType: 'json',
-    //   data: {
-    //     group: { 
-    //       balance: 
-
-    //     }
-    //   }
-    // })
+  console.log(response);
+  $(response).appendTo('<span#updated-bank-balance>')
   })
 }
 
