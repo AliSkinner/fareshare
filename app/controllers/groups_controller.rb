@@ -36,7 +36,12 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+<<<<<<< HEAD
     
+=======
+    invoice_amounts = @group.invoices.map {|invoice| invoice.amount}
+    @total_amount = invoice_amounts.reduce(:+) 
+>>>>>>> b4d6b2e7903661a31bf18cb36044d3dedeabc2c5
   end
 
   private
