@@ -1,23 +1,27 @@
-%h1= @user.name
-.user
-  = image_tag(@user.gravatar_url)
+-if @user.id == current_user.id
 
-  %h3= mail_to @user.email
+  %h1= @user.name
+  .user
+    = image_tag(@user.gravatar_url)
 
-  %p Balance: #{@user.balance.to_i}
+    %h3= mail_to @user.email
 
-  %h3 View your outstanding invoices!:
+    %p Balance: #{@user.balance.to_i}
 
-  %table
-    %tr
-      %th Invoice
-      %th Amount
-      %th Your share to pay:
-    - @allocations.each do |allocation|  
+    %h3 View your outstanding invoices!:
+
+    %table
       %tr
-        %td= allocation.invoice.name
-        %td= allocation.invoice.amount
-        %td= allocation.share
+        %th Invoice
+        %th Amount
+        %th Your share to pay:
+      - @allocations.each do |allocation|  
+        %tr
+          %td= allocation.invoice.name
+          %td= allocation.invoice.amount
+          %td= allocation.share
+-else
+  %h1 SORRY, YOU CANNOT VIEW OTHER USER'S INFORMATION!
           
 
 
