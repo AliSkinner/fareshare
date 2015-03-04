@@ -16,8 +16,9 @@ class AllocationsController < ApplicationController
   end
 
   def update
-    @allocation = Allocation.update(allocation_params)
-    redirect_to invoices_path
+    @allocation = Allocation.find(params[:id])
+    @allocation.update(allocation_params)
+    render json: @allocation
   end
 
   def destroy
@@ -28,7 +29,7 @@ class AllocationsController < ApplicationController
 
   private
   def allocation_params
-    params.require(:allocation).permit(:invoice_id, :user_id, :share)
+    params.require(:allocation).permit(:invoice_id, :user_id, :share, :paid)
   end
 
 end

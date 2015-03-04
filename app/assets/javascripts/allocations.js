@@ -46,3 +46,27 @@ $(function(){
   })
 })
 
+function userPayInvoiceShare(id, paid) {
+  $.ajax({
+    url: "/allocations/" + id,
+    method: 'PUT',
+    dataType: 'json',
+    data: {allocation:{paid: paid}}
+  }).done(function(response) {
+    console.log(response);
+  })
+}
+
+
+
+$(function(){
+  $('.pay-user-invoice').on('click', function(e){
+    var id_row = $(this).parent().parent().children()[1]
+    var id = $(id_row).text()
+    var paid = true;
+    $(this).replaceWith("<td>Paid</td>")
+    userPayInvoiceShare(id, paid);
+  })
+})
+
+
