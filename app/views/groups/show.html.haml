@@ -1,3 +1,7 @@
+- if current_user.id != @leader_id
+  .btn.btn-primary.btn-lg.green
+    = link_to "Add a new Invoice to the Group's Accounts", new_invoice_path
+
 %h2= @group.name 
 .group
   %p= @group.description
@@ -31,7 +35,8 @@
           -# %td.button-pay-invoice
           %td{ class: "#{invoice.id}" }
             %button.pay-invoice{data: {id: invoice.id, amount: invoice.amount} } Pay this Invoice Now
-      
+
+          
 
       
             -# = link_to('pay this invoice', invoice, class: "pay-invoice", :data => { :id => invoice.id})
