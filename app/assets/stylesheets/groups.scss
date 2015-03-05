@@ -4,13 +4,13 @@
 
 .group-form {
   margin: 25px;
-  /*width: 70%;*/
+  background: red;
 }
 
 .user-select {  
   border: 1px solid white;
   padding: 5px;
-  width: 40%;
+  width: 80%;
 }
 
 .user-box {
@@ -55,5 +55,9 @@ td .email {
 .groups {
   display: inline-block;
   max-width: 60%;
+}
+
+.container {
+  margin-left: 50px;
 }
 

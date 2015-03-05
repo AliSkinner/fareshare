@@ -1,33 +1,34 @@
-.container.group-form
+.container
   %h1 Create a New Group
-= form_for @group, :html => {:class => "form-horizontal group-form"} do |f|
+  .group-form
+    = form_for @group, :html => {:class => "form-horizontal group-form"} do |f|
 
-      
-  %p
-    .field
-      = f.label :name
-      %br
-      = f.text_field :name
+          
+      %p
+        .field
+          = f.label :name
+          %br
+          = f.text_field :name
 
-  %p
-    .field
-      = f.label :description
-      %br
-      = f.text_area :description
+      %p
+        .field
+          = f.label :description
+          %br
+          = f.text_area :description
 
-  .user-select
-    %p
-      .field
-      - User.all.each do |user|
-        = check_box_tag "group[user_ids][]", user.id, @group.users.include?(user) || user.id == current_user.id, id: "group_user_ids_#{user.id}", disabled: user.id == current_user.id
-        = f.label :user_ids, user.name, for: "group_user_ids_#{user.id}"
+      .user-select
+        %p
+          .field
+          - User.all.each do |user|
+            = check_box_tag "group[user_ids][]", user.id, @group.users.include?(user) || user.id == current_user.id, id: "group_user_ids_#{user.id}", disabled: user.id == current_user.id
+            = f.label :user_ids, user.name, for: "group_user_ids_#{user.id}"
 
-  %p
-    .field
-      = f.hidden_field :created_by, value: current_user.id 
-  %p
-    .actions
-      = f.submit :class => "submit"
+      %p
+        .field
+          = f.hidden_field :created_by, value: current_user.id 
+      %p
+        .actions
+        = f.submit :class => "submit"
 
 %h2.new-group 
 

@@ -23,14 +23,15 @@ function createGroup(){
       }
     }
   }).done(function(response){
-    $('<h2> Your group ' + response.name + ' is created. <button class="delete" data-id='+ response.id +'>Delete</button></h2>').appendTo('h2.new-group')
-    $('<p>' + response.description + '</p>' ).appendTo('h2.new-group')
-    $('<a href="/groups/'  + response.id + '">check out the group</a>').appendTo('h2.new-group')
+    $('<h2> Your group ' + response.name + ' is created </h2>').appendTo('.container')
+    $('<p>' + response.description + '</p>' ).appendTo('.container')
+    $('<a href="/groups/'  + response.id + '">check out the group</a>').appendTo('.container')
   
     $.each(response.users, function(index, user){
  
-    $('<p>' + user.name + '</p>').appendTo('h2.new-group')
-   });
+    $('<p>' + user.name + '</p>').appendTo('.container')
+    });
+    $('<button class="delete" data-id='+ response.id +'>Delete</button></h4>').appendTo('.container')
   })
 }
 
@@ -46,6 +47,7 @@ function payInvoice(id, paid, amount) {
     }
   })
   .done(function(response) {
+    console.log(response)
     $('#updated-bank-balance').html(response)
   // response.appendTo('#updated-bank-balance')
   }) 

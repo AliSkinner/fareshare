@@ -1,0 +1,32 @@
+.hidden {
+  display: none;
+}
+
+.user-select {  
+  border: 1px solid white;
+  padding: 5px;
+
+}
+
+.user-box {
+  display: inline-block;
+  padding: 5px;
+}
+
+.group-form {
+  margin: 25px;
+  width: 50%;
+  float: left;
+}
+
+#new-group {
+  background: red;
+}
+
+.container {
+  margin-left: 50px;
+}
+
+.delete{
+  color: rgb(43, 62, 80);
+}
