@@ -12,6 +12,7 @@ class InvoicesController < ApplicationController
 
   def new 
     @invoice = Invoice.new
+    @user_admin_groups = current_user.groups.map {|group| if group.created_by == current_user.id then group end}
   end
 
   def create 
