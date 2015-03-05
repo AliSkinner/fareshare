@@ -25,11 +25,14 @@
 
 .group {
   display: inline-block;
-  // width: 50%;
+  max-width: 60%;
 }
 
 .group-table {
+  width: 50%;
+  margin-left: 25%;
   margin-bottom: 15px;
+  text-align: left;
 }
 
 .group-table tr{
@@ -41,10 +44,10 @@
   // width:auto;
 }
 
-td .email {
+.email {
   width:33.33%;
-  text-align: right;
-  // text-align: center;
+  // text-align: right;
+  text-align: center;
 
 }
 
@@ -52,12 +55,22 @@ td .email {
   color:rgb(43,62,80);
 }
 
+
 .groups {
   display: inline-block;
   max-width: 60%;
 }
 
+
 .container {
   margin-left: 50px;
+}
+
+
+
+.pay-invoice {
+  color:rgb(43,62,80);
+  margin-right:5px;
+  margin-bottom: 5px;
 }
 
