@@ -1,0 +1,29 @@
+.green {
+  background-color: rgb(181,212,48);
+}
+
+/*.welcome-container {
+  height: 100%;
+  width: 100%;
+  background: url('http://manvsdebt.com/wp-content/uploads/2012/05/bills-to-pay.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}*/
+
+.welcome-container {
+  height: 100%;
+  width: 100%;
+  background: url('http://realfoodeater.com/wp-content/uploads/2014/03/stack-of-papers.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.title-page {
+  /*opacity: .5;*/
+  background: black;
+  color: white;
+}

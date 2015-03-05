@@ -4,6 +4,7 @@
   
   %ul
     - @group.users.each do |user| 
+
       %li= user.name 
   -if @total_amount != nil
     %h3
@@ -31,6 +32,7 @@
               %button.pay-invoice{data: {id: invoice.id, amount: invoice.amount} } Pay this Invoice Now 
         %td
   -else
-    %h3 No invoices to pay!
+    %h3 No invoices to pay
+
         
       

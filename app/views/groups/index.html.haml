@@ -20,7 +20,9 @@
     - User.all.each do |user|
       = check_box_tag "group[user_ids][]", user.id, @group.users.include?(user), id: "group_user_ids_#{user.id}"
       = f.label :user_ids, user.name, for: "group_user_ids_#{user.id}"
-    
+  %p
+    .field
+      = f.hidden_field :created_by, value: current_user.id 
   %p
     .actions
       = f.submit :class => "submit"
