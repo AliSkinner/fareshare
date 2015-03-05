@@ -46,6 +46,8 @@ function payInvoice(id, paid, amount) {
     }
   })
   .done(function(response) {
+    console.log(response)
+    // $('#total-invoices-amount').html(response)
     $('#updated-bank-balance').html(response)
   // response.appendTo('#updated-bank-balance')
   }) 
@@ -59,19 +61,20 @@ $(document).ready(function(){
   })
   $('.pay-invoice').on('click', function(e){
     e.preventDefault();
-    console.log('whaddup')
-    $balance = parseInt($('.group_balance').text())
-    $owed = parseInt($('.total_invoices_amount').text())
-    if($balance >= $owed) {
+    
+    // $balance = parseInt($('.group_balance').text())
+    // $owed = parseInt($('.total-invoices-amount').text()) 
+    // $owed = parseInt($('.total_invoices_amount').text())
+    // if($balance >= $owed) {
     var id = $(this).data("id");
     var paid = true; 
     var amount = $(this).data("amount");
     $(this).replaceWith("<td>Paid</td>")
     payInvoice(id, paid, amount);
-    }
-    else {
-      alert('Your Group does not have enough funds to pay. Please contact your group members to pay their bills')
-    }
+    // }
+    // else {
+    // alert('Your Group does not have enough funds to pay. Please contact your group members to pay their bills')
+    // }
   })
 })
 

@@ -30,6 +30,7 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     amount = @invoice.amount
     @invoice.update(invoice_params)
+    
     new_balance = @invoice.group.balance - amount
 
     # new_balance = @invoice.group.balance - amount

@@ -9,7 +9,7 @@
 
 
 
-u1 = User.create(email: 'tomsmith@email.com', password: 'password', password_confirmation: 'password',name: "Tom Smith", balance: 0)
+u1 = User.create(email: 'tomsmith@mailinator.com', password: 'password', password_confirmation: 'password',name: "Tom Smith", balance: 0)
 u2 = User.create(email: 'johnjones@email.com', password: 'password', password_confirmation: 'password',name: "John Jones", balance: 0)
 u3 = User.create(email: 'timdavies@email.com', password: 'password', password_confirmation: 'password',name: "Tim Davies", balance: 0)
 u4 = User.create(email: 'barrygrape@email.com', password: 'password', password_confirmation: 'password',name: "Barry Grape", balance: 0)
@@ -20,8 +20,8 @@ u8 = User.create(email: 'barrygrey@email.com', password: 'password', password_co
 u9 = User.create(email: 'sarahsmithson@email.com', password: 'password', password_confirmation: 'password',name: "Sarah Smithson", balance: 0)
 u10 = User.create(email: 'jennyjackson@email.com', password: 'password', password_confirmation: 'password',name: "Jenny Jackson", balance: 0)
 
-g1 = Group.create(name: "Student House", created_by: u4.id)
-g2 = Group.create(name: "Saturday Night")
+g1 = Group.create(name: "Student House", created_by: u4.id, balance:15000)
+g2 = Group.create(name: "Saturday Night", created_by: u1.id, balance:3000)
 g3 = Group.create(name: "Holiday")
 g4 = Group.create(name: "Birthday Party")
 g5 = Group.create(name: "Retirement Party")
