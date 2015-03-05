@@ -52,8 +52,8 @@ function payInvoice(id, paid, amount) {
 
 $(document).ready(function(){
   // console.log("hello")
-  $('#new_group.new_group').on('submit', function(){
-    event.preventDefault();
+  $('#new_group').on('submit', function(e){
+    e.preventDefault();
     createGroup();
   })
   $('.pay-invoice').on('click', function(e){
