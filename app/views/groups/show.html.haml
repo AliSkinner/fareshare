@@ -1,4 +1,4 @@
-- if current_user.id != @leader_id
+- if current_user.id == @leader_id
   .btn.btn-primary.btn-lg.green
     = link_to "Add a new Invoice to the Group's Accounts", new_invoice_path
 
