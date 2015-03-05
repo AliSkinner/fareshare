@@ -22,6 +22,7 @@
           %th Pay now
         - @allocations.each do |allocation|  
           %tr
+<<<<<<< HEAD
             %td= allocation.invoice.name
             %td.hidden= allocation.id
             %td= link_to allocation.invoice.group.name, group_path(allocation.invoice.group)
@@ -36,6 +37,27 @@
   %h1 SORRY, YOU CANNOT VIEW OTHER USER'S INFORMATION!
           
 
+=======
+            %th Invoice
+            %th.hidden Allocation Id
+            %th Group
+            %th.hidden Group Id
+            %th Amount
+            %th Your share to pay:
+            %th Pay now
+          - @unpaid_shares.each do |allocation|  
+            %tr
+              %td= allocation.invoice.name
+              %td.hidden= allocation.id
+              %td= allocation.invoice.group.name
+              %td.hidden= allocation.invoice.group.id
+              %td= allocation.invoice.amount
+              %td= allocation.share
+              %td
+                %button.pay-user-invoice Pay this invoice!
+      -else
+        %p Nothing to pay now!
+>>>>>>> 3506de84c67c45f52b8a67e24b28154de78c1761
 
 
 // need button to each group show page that this user is a member of:

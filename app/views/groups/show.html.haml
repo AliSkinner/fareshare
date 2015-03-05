@@ -5,36 +5,14 @@
   %ul
     - @group.users.each do |user| 
 
-<<<<<<< HEAD
+
       %li= user.name 
   -if @total_amount != nil
     %h3
       Your total amount owed is:
       %span.total_invoices_amount
         £#{@total_amount}
-    %table
-      %tr
-        %th Invoice
-        %th Amount
-        %th Due Date
-        %th Status
-      - @group.invoices.each do |invoice|    
-        - if invoice.paid == false
-          %tr
-            %td.invoice-name= invoice.name
-            %td.invoice-amount £#{invoice.amount}
-            - if invoice.due_date
-              %td= invoice.due_date.strftime("%d %b. %Y")
-            - else
-              %td no due date  
-            //need to make sure that date cell is filled to keep columns aligned
-            -# %td.button-pay-invoice
-            %td{ class: "#{invoice.id}" }
-              %button.pay-invoice{data: {id: invoice.id, amount: invoice.amount} } Pay this Invoice Now 
-        %td
-  -else
-    %h3 No invoices to pay
-=======
+    
   %table.invoice-table
     %tr
       %th Invoice
