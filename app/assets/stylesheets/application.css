@@ -14,4 +14,8 @@
  *= require_self
  */
 
-  
+  /*.sticky-top {
+    margin-left:auto;
+    background: rgb(43,62,80);
+    position: fixed;
+  }*/

@@ -1,26 +1,32 @@
 function createAllocation(form){
-  console.log("in the create allocation");
+  // console.log("in the create allocation");
   $share = form.find('input[type="text"]').val()
   $user = form.find('input[class="user-name"]').val()
   $invoice = $('.invoice-name').val()
-  console.log($share);
-  console.log($user);
-  console.log($invoice);
-    $.ajax({
-      url: "/allocations",
-      method: 'POST',
-      dataType: 'json',
-      data: {allocation:{user_id:$user, invoice_id:$invoice, share:$share}}
-    }).done(function(data){
-      // console.log(data)    
-    })
+  // console.log($share);
+  // console.log($user);
+  // console.log($invoice);
+  $.ajax({
+    url: "/allocations",
+    method: 'POST',
+    dataType: 'json',
+    data: {allocation:{user_id:$user, invoice_id:$invoice, share:$share}}
+  }).done(function(data){
+    console.log('created allocation')    
+  })
 }
 $(function (){
   $('#allocation-master').on('click', function(){
     $('form').each(function() {
       $form = $(this)
-        createAllocation($form); 
+      createAllocation($form); 
     })
+    window.location = window.location.origin + "/groups" + "/" + $('.group_id').text() 
+  })
+})
+$(function (){
+  $('.new_allocation').on('submit', function(e){
+    e.preventDefault()
   })
 })
 
@@ -71,6 +77,12 @@ $(function(){
     $(this).replaceWith("<td>Paid</td>")
     userPayInvoice(allocation_id, paid, amount_owed);
   })
+  $(document).on('keypress', function(e){
+    if(e.keycode === 13){
+      e.preventDefault;
+    }
+  })
+  
 })
 
 

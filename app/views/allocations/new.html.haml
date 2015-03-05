@@ -11,4 +11,5 @@
     = f.hidden_field :invoice_id, value: current_user.invoices.last.id, class: 'invoice-name'
     = f.label :share
     = f.text_field :share, class: 'allocation-share', value: 0
+%p.group_id.hidden #{current_user.invoices.last.group_id}
 %button#allocation-master.hidden Submit Allocation

@@ -1,16 +1,13 @@
 
 function createGroup(){
-
   var $name = $('#group_name').val();
   var $description = $('#group_description').val();
   var $members = $(":checked");
   var user_ids = [];
   var $created_by = $('#group_created_by').val()
-
   $.each($members, function(index,checkbox) {
     user_ids.push(checkbox.value);
   });
-
   $.ajax({
     url: "/groups",
     method: 'POST',
@@ -26,7 +23,6 @@ function createGroup(){
       }
     }
   }).done(function(response){
-    
     $('<h2> Your group ' + response.name + ' is created. <button class="delete" data-id='+ response.id +'>Delete</button></h2>').appendTo('h2.new-group')
     $('<p>' + response.description + '</p>' ).appendTo('h2.new-group')
     $('<a href="/groups/'  + response.id + '">check out the group</a>').appendTo('h2.new-group')
@@ -39,7 +35,6 @@ function createGroup(){
 }
 
 function payInvoice(id, paid, amount) {
-  // console.log(id);
   $.ajax({
     url: "/invoices/" + id,
     method: 'PUT',
@@ -52,25 +47,31 @@ function payInvoice(id, paid, amount) {
   })
   .done(function(response) {
     $('#updated-bank-balance').html(response)
- 
   // response.appendTo('#updated-bank-balance')
-  })
+  }) 
 }
 
-$(function(){
+$(document).ready(function(){
   // console.log("hello")
-  $('#new_group.new_group').on('submit', function(){
-    event.preventDefault();
+  $('#new_group').on('submit', function(e){
+    e.preventDefault();
     createGroup();
-  });
-
+  })
   $('.pay-invoice').on('click', function(e){
     e.preventDefault();
+    console.log('whaddup')
+    $balance = parseInt($('.group_balance').text())
+    $owed = parseInt($('.total_invoices_amount').text())
+    if($balance >= $owed) {
     var id = $(this).data("id");
     var paid = true; 
     var amount = $(this).data("amount");
     $(this).replaceWith("<td>Paid</td>")
     payInvoice(id, paid, amount);
+    }
+    else {
+      alert('Your Group does not have enough funds to pay. Please contact your group members to pay their bills')
+    }
   })
 })
 
