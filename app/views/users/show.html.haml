@@ -4,10 +4,10 @@
   .user
     = image_tag(@user.gravatar_url)
 
-    %h3= mail_to @user.email
-    .btn.btn-primary.btn-lg.green
-      = link_to "Create a New Group", groups_path
+    %h3= mail_to @user.email 
     -if @user.id == current_user.id
+      .btn.btn-primary.btn-lg.green
+        = link_to "Create a New Group", groups_path
       .user-groups
         - @user.groups.each do |group|
           %p.groups= link_to group.name, group_path(group)
