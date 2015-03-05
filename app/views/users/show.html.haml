@@ -1,43 +1,43 @@
-%h1= @user.name
-.user
-  = image_tag(@user.gravatar_url)
 
-  %h3= mail_to @user.email
+.profile
+  %h1= @user.name
+  .user
+    = image_tag(@user.gravatar_url)
 
-  .btn.btn-primary.btn-lg.green
-    = link_to "Create a New Group", groups_path
-
-  -if current_user.id == @user.id
-    .user-groups
-      - @user.groups.each do |group|
-        %p.groups= link_to group.name, group_path(group)
-
-      -if @total_share_amount != nil
-        %p Your Outstanding Balance: £ #{number_with_delimiter(@total_share_amount, :delimiter => ',')}
-
-        %h3 View your outstanding invoices!:
-
-        %table
-          %tr
-            %th Invoice
-            %th.hidden Allocation Id
-            %th Group
-            %th.hidden Group Id
-            %th Amount
-            %th Your share to pay:
-            %th Pay now
-          - @unpaid_shares.each do |allocation|  
+    %h3= mail_to @user.email
+    .btn.btn-primary.btn-lg.green
+      = link_to "Create a New Group", groups_path
+    -if @user.id == current_user.id
+      .user-groups
+        - @user.groups.each do |group|
+          %p.groups= link_to group.name, group_path(group)
+        - if @total_share_amount != nil
+          %p Your Outstanding Balance: £ #{number_with_delimiter(@total_share_amount, :delimiter => ',')}
+          %p Balance: #{@total_share_amount }
+  
+          %h3 Outstanding Invoices
+      
+          %table.invoice-table
             %tr
-              %td= allocation.invoice.name
-              %td.hidden= allocation.id
-              %td= allocation.invoice.group.name
-              %td.hidden= allocation.invoice.group.id
-              %td= allocation.invoice.amount
-              %td= allocation.share
-              %td
-                %button.pay-user-invoice Pay this invoice!
-      -else
-        %p Nothing to pay now!
+              %th Invoice
+              %th.hidden Allocation Id
+              %th Group
+              %th.hidden Group Id
+              %th Amount
+              %th Your share to pay:
+              %th Pay now
+              - @unpaid_shares.each do |allocation|  
+                %tr
+                  %td= allocation.invoice.name
+                  %td.hidden= allocation.id
+                  %td= allocation.invoice.group.name
+                  %td.hidden= allocation.invoice.group.id
+                  %td= allocation.invoice.amount
+                  %td= allocation.share
+                  %td
+                    %button.pay-user-invoice Pay this invoice!
+        -else
+          %p Nothing to pay now!
 
 
 // need button to each group show page that this user is a member of:
