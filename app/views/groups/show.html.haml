@@ -8,9 +8,11 @@
       %li= user.name 
   -if @total_amount != nil
     %h3
-      Your total amount owed is:
-      %span.total_invoices_amount
-        £#{@total_amount}
+      Your total amount owed is: £ 
+      %span.total_invoices_amount #{@total_amount}
+    %h3 
+      The Funds you have available are: £
+      %span.group_balance #{@group.balance}
     %table
       %tr
         %th Invoice
