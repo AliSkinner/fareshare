@@ -23,7 +23,7 @@
             %th Amount
             %th Your share to pay:
             %th Pay now
-          - @allocations.each do |allocation|  
+          - @unpaid_shares.each do |allocation|  
             %tr
               %td= allocation.invoice.name
               %td.hidden= allocation.id
