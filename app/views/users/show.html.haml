@@ -1,34 +1,34 @@
 -if @user.id == current_user.id
-
-  %h1= @user.name
-  .user
-    = image_tag(@user.gravatar_url)
-
-    %h3= mail_to @user.email
-
-    %p Balance: #{@total_share_amount }
-
-    %h3 View your outstanding invoices!:
-
-    %table
-      %tr
-        %th Invoice
-        %th.hidden Allocation Id
-        %th Group
-        %th.hidden Group Id
-        %th Amount
-        %th Your share to pay:
-        %th Pay now
-      - @allocations.each do |allocation|  
+  .profile
+    %h1= @user.name
+    .user
+      = image_tag(@user.gravatar_url)
+  
+      %h3= mail_to @user.email
+  
+      %p Balance: #{@total_share_amount }
+  
+      %h3 View your outstanding invoices!:
+  
+      %table.invoice-table
         %tr
-          %td= allocation.invoice.name
-          %td.hidden= allocation.id
-          %td= link_to allocation.invoice.group.name, group_path(allocation.invoice.group)
-          %td.hidden= allocation.invoice.group.id
-          %td= allocation.invoice.amount
-          %td= allocation.share
-          %td
-            %button.pay-user-invoice Pay this invoice!
+          %th Invoice
+          %th.hidden Allocation Id
+          %th Group
+          %th.hidden Group Id
+          %th Amount
+          %th Your share to pay:
+          %th Pay now
+        - @allocations.each do |allocation|  
+          %tr
+            %td= allocation.invoice.name
+            %td.hidden= allocation.id
+            %td= link_to allocation.invoice.group.name, group_path(allocation.invoice.group)
+            %td.hidden= allocation.invoice.group.id
+            %td= allocation.invoice.amount
+            %td= allocation.share
+            %td
+              %button.pay-user-invoice Pay this invoice!
     
 
 -else
