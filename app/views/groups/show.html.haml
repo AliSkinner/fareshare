@@ -4,41 +4,35 @@
   
   %ul
     - @group.users.each do |user| 
-      %li= link_to user.name, user_path(user) 
-  %h3
-    Your group's total outstanding invoices are:
-    %span.total_invoices_amount
-      £#{@total_amount}
-    Your group's available cash is:
-    %span#updated-bank-balance
-      £#{@balance}
 
-  %table
-    %tr
-      %th Invoice
-      %th Amount
-      %th Due Date
-      %th Status
-    - @group.invoices.each do |invoice|    
-      - if invoice.paid == false
-        %tr
-          %td.invoice-name= invoice.name
-          %td.invoice-amount £#{invoice.amount}
-          - if invoice.due_date
-            %td= invoice.due_date.strftime("%d %b. %Y")
-          - else
-            %td no due date  
-          //need to make sure that date cell is filled to keep columns aligned
-          -# %td.button-pay-invoice
-          %td{ class: "#{invoice.id}" }
-            %button.pay-invoice{data: {id: invoice.id, amount: invoice.amount} } Pay this Invoice Now
-
-
-      
-            -# = link_to('pay this invoice', invoice, class: "pay-invoice", :data => { :id => invoice.id})
-       
-      %td
-        -# %a{:href => "https://www.britishgas.co.uk/Login/Login-Verify/"} British Gas
+      %li= user.name 
+  -if @total_amount != nil
+    %h3
+      Your total amount owed is:
+      %span.total_invoices_amount
+        £#{@total_amount}
+    %table
+      %tr
+        %th Invoice
+        %th Amount
+        %th Due Date
+        %th Status
+      - @group.invoices.each do |invoice|    
+        - if invoice.paid == false
+          %tr
+            %td.invoice-name= invoice.name
+            %td.invoice-amount £#{invoice.amount}
+            - if invoice.due_date
+              %td= invoice.due_date.strftime("%d %b. %Y")
+            - else
+              %td no due date  
+            //need to make sure that date cell is filled to keep columns aligned
+            -# %td.button-pay-invoice
+            %td{ class: "#{invoice.id}" }
+              %button.pay-invoice{data: {id: invoice.id, amount: invoice.amount} } Pay this Invoice Now 
+        %td
+  -else
+    %h3 No invoices to pay
 
         
       
