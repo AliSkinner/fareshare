@@ -7,15 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-g1 = Group.create(name: "Student House")
-g2 = Group.create(name: "Saturday Night")
-g3 = Group.create(name: "Holiday")
-g4 = Group.create(name: "Birthday Party")
-g5 = Group.create(name: "Retirement Party")
-g6 = Group.create(name: "Trip to India")
-g7 = Group.create(name: "But and Ben")
-g8 = Group.create(name: "Summer House")
-g9 = Group.create(name: "Great Big Party")
+
 
 u1 = User.create(email: 'tomsmith@email.com', password: 'password', password_confirmation: 'password',name: "Tom Smith", balance: 0)
 u2 = User.create(email: 'johnjones@email.com', password: 'password', password_confirmation: 'password',name: "John Jones", balance: 0)
@@ -38,6 +30,16 @@ u17 = User.create(email: 'douglasdarksneeze@email.com', password: 'password', pa
 u18 = User.create(email: 'johnnyjipsmith@email.com', password: 'password', password_confirmation: 'password',name: "Johnny Jipsmith", balance: 0)
 u19 = User.create(email: 'amandabillwipe@email.com', password: 'password', password_confirmation: 'password',name: "Amanda Billwipe", balance: 0)
 u20 = User.create(email: 'terryswitchpence@email.com', password: 'password', password_confirmation: 'password',name: "Terry Switchpence", balance: 0)
+
+g1 = Group.create(name: "Student House", created_by: u4.id)
+g2 = Group.create(name: "Saturday Night")
+g3 = Group.create(name: "Holiday")
+g4 = Group.create(name: "Birthday Party")
+g5 = Group.create(name: "Retirement Party")
+g6 = Group.create(name: "Trip to India")
+g7 = Group.create(name: "But and Ben")
+g8 = Group.create(name: "Summer House")
+g9 = Group.create(name: "Great Big Party")
 
 i1 = Invoice.create(name: "Gas", amount: 500, group_id: g1.id, paid: false)
 i2 = Invoice.create(name: "Electricity", amount: 400, group_id: g1.id, paid: false)

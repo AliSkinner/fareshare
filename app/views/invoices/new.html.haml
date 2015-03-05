@@ -1,7 +1,7 @@
 -if @user_admin_groups.include?(nil)
   %h3 You can only create an invoices for the groups you create. Please create a new group to start assigning invoices
 -else
-  %h3 CREATE NEW INVOICE
+  %h3 Record a New Invoice
   = form_for(@invoice) do |f|
     %p
       .field

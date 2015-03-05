@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :invoices
   resources :allocations
   resources :groups
-  resources :welcome
+  # resources :welcome
   root 'welcome#index'
 
 

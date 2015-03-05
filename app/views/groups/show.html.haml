@@ -1,50 +1,46 @@
 
-.profile
-  %h1= @group.name 
-  .group
-    %p= @group.description
-    
-    
-    - @group.users.each do |user| 
-      %table.group-table
-        %tr
-          %td
-            = image_tag(user.gravatar_url, class: "grav")
-          %td
-            = user.name 
-          %td.email
-            / %i.fa.fa-envelope-o
-            = mail_to user.email
-    -if @total_amount != nil
-      %h3
-        Your total amount owed is: £ 
-        %span.total_invoices_amount #{@total_amount}
-      %h3 
-        The Funds you have available are: £
-        %span.group_balance #{@group.balance}
-      %table
-        %tr
-          %th Invoice
-          %th Amount
-          %th Due Date
-          %th Status
-        - @group.invoices.each do |invoice|    
-          - if invoice.paid == false
-            %tr
-              %td.invoice-name= invoice.name
-              %td.invoice-amount £#{invoice.amount}
-              - if invoice.due_date
-                %td= invoice.due_date.strftime("%d %b. %Y")
-              - else
-                %td no due date  
-              //need to make sure that date cell is filled to keep columns aligned
-              -# %td.button-pay-invoice
-              %td{ class: "#{invoice.id}" }
-                %button.pay-invoice{data: {id: invoice.id, amount: invoice.amount} } Pay this Invoice   Now 
-          %td
-    -else
-      %h3 No invoices to pay
-  
-          
-          
+- if current_user.id != @leader_id
+  .btn.btn-primary.btn-lg.green
+    = link_to "Add a new Invoice to the Group's Accounts", new_invoice_path
 
+%h2= @group.name 
+.group
+  %p= @group.description
+  
+  %ul
+    - @group.users.each do |user| 
+      %li= user.name 
+  -if @total_amount != nil
+    %h3
+
+      Your total amount owed is: £ 
+      %span.total_invoices_amount #{@total_amount}
+    %h3 
+      The Funds you have available are: £
+      %span.group_balance #{@group.balance}
+    %table
+      %tr
+        %th Invoice
+        %th Amount
+        %th Due Date
+        %th Status
+      - @group.invoices.each do |invoice|    
+        - if invoice.paid == false
+          %tr
+            %td.invoice-name= invoice.name
+            %td.invoice-amount £#{invoice.amount}
+            - if invoice.due_date
+              %td= invoice.due_date.strftime("%d %b. %Y")
+            - else
+              %td no due date  
+            //need to make sure that date cell is filled to keep columns aligned
+            -# %td.button-pay-invoice
+            %td{ class: "#{invoice.id}" }
+              %button.pay-invoice{data: {id: invoice.id, amount: invoice.amount} } Pay this Invoice Now 
+        %td
+  -else
+    %h3 No invoices to pay
+
+
+        
+      

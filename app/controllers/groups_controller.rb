@@ -21,8 +21,8 @@ class GroupsController < ApplicationController
         @group.users << User.find(user)
       end
     end
-    render json: @group, :include => {:users => {:only =>:name}}, status: :created
-    # redirect_to groups_path
+      render json: @group, :include => {:users => {:only =>:name}}, status: :created
+      # redirect_to groups_path
   end
 
   def edit
@@ -41,7 +41,8 @@ class GroupsController < ApplicationController
     unpaid_invoice_amounts = unpaid_invoice_not_nil.map {|invoice| invoice.amount}
     @total_amount = unpaid_invoice_amounts.reduce(:+) 
     @balance = @group.balance
-
+    @leader_id = @group.created_by
+    
   end
 
   private
