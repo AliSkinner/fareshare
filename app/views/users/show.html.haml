@@ -4,13 +4,16 @@
 
   %h3= mail_to @user.email
 
+  .btn.btn-primary.btn-lg.green
+     = link_to "Create a New Group", groups_path
+
   -if current_user.id == @user.id
     .user-groups
       - @user.groups.each do |group|
         %p.groups= link_to group.name, group_path(group)
 
       -if @total_share_amount != nil
-        %p Balance: #{@total_share_amount }
+        %p Your Outstanding Balance: £ #{number_with_delimiter(@total_share_amount, :delimiter => ',')}
 
         %h3 View your outstanding invoices!:
 
