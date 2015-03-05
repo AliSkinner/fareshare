@@ -4,6 +4,7 @@ function createGroup(){
   var $description = $('#group_description').val();
   var $members = $(":checked");
   var user_ids = [];
+  var $created_by = $('#group_created_by').val()
 
   $.each($members, function(index,checkbox) {
     user_ids.push(checkbox.value);
@@ -17,6 +18,7 @@ function createGroup(){
       group: {
         name: $name,
         description: $description,
+        created_by: parseInt($created_by)
       },
       user:{
         user_ids: user_ids
