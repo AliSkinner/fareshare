@@ -48,8 +48,9 @@ function payInvoice(id, paid, amount) {
     }
   })
   .done(function(response) {
-  console.log(response);
-  $(response).appendTo('<span#updated-bank-balance>')
+    $('#updated-bank-balance').html(response)
+ 
+  // response.appendTo('#updated-bank-balance')
   })
 }
 

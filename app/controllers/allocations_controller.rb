@@ -8,7 +8,8 @@ class AllocationsController < ApplicationController
   def create
     @allocation = Allocation.create(allocation_params)
     UserMailer.invoice_create(@allocation.invoice.group).deliver
-    render json: @allocation, status: :created    
+    # render json: @allocation, status: :created 
+    redirect_to group_path(@allocation.invoice.group)   
   end
 
   def edit
@@ -17,7 +18,12 @@ class AllocationsController < ApplicationController
 
   def update
     @allocation = Allocation.find(params[:id])
+    amount = @allocation.share
     @allocation.update(allocation_params)
+    balance = @allocation.invoice.group.balance
+    balance = 0 if balance.nil? 
+    new_balance = balance + amount 
+    @allocation.invoice.group.update_balance(new_balance)
     render json: @allocation
   end
 
