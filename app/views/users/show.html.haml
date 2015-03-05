@@ -1,9 +1,12 @@
+
 .profile
   %h1= @user.name
   .user
     = image_tag(@user.gravatar_url)
 
     %h3= mail_to @user.email
+    .btn.btn-primary.btn-lg.green
+      = link_to "Create a New Group", groups_path
     -if @user.id == current_user.id
       .user-groups
         - @user.groups.each do |group|
@@ -15,6 +18,7 @@
           %h3 Outstanding Invoices
       
           %table.invoice-table
+
             %tr
               %th Invoice
               %th.hidden Allocation Id
