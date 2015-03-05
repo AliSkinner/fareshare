@@ -21,7 +21,7 @@
       %h3 
         The Funds you have available are: £
         %span.group_balance #{@group.balance}
-      %table
+      %table.invoice-table
         %tr
           %th Invoice
           %th Amount
@@ -40,7 +40,6 @@
               -# %td.button-pay-invoice
               %td{ class: "#{invoice.id}" }
                 %button.pay-invoice{data: {id: invoice.id, amount: invoice.amount} } Pay this Invoice   Now 
-          %td
     -else
       %h3 No invoices to pay
   
