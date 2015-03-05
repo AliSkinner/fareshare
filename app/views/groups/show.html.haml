@@ -45,7 +45,10 @@
               //need to make sure that date cell is filled to keep columns aligned
               -# %td.button-pay-invoice
               %td{ class: "#{invoice.id}" }
-                %button.pay-invoice{data: {id: invoice.id, amount: invoice.amount} } Pay this Invoice   Now 
+                - if current_user.id == @leader_id
+                  %button.pay-invoice{data: {id: invoice.id, amount: invoice.amount} } Pay this Invoice   Now 
+                - else
+                  %p only the group user can pay this invoice
     -else
       %h3 No invoices to pay
 
