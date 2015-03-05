@@ -25,10 +25,14 @@
 
 .group {
   display: inline-block;
+  max-width: 60%;
 }
 
 .group-table {
+  width: 50%;
+  margin-left: 25%;
   margin-bottom: 15px;
+  text-align: left;
 }
 
 .group-table tr{
@@ -40,10 +44,10 @@
   // width:auto;
 }
 
-td .email {
+.email {
   width:33.33%;
-  text-align: right;
-  // text-align: center;
+  // text-align: right;
+  text-align: center;
 
 }
 
