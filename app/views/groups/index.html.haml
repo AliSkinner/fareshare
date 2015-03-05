@@ -18,8 +18,9 @@
   %p
     .field
     - User.all.each do |user|
-      = check_box_tag "group[user_ids][]", user.id, @group.users.include?(user), id: "group_user_ids_#{user.id}"
+      = check_box_tag "group[user_ids][]", user.id, @group.users.include?(user) || user.id == current_user.id, id: "group_user_ids_#{user.id}", disabled: user.id == current_user.id
       = f.label :user_ids, user.name, for: "group_user_ids_#{user.id}"
+
   %p
     .field
       = f.hidden_field :created_by, value: current_user.id 

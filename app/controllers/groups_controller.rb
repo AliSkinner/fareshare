@@ -21,8 +21,8 @@ class GroupsController < ApplicationController
         @group.users << User.find(user)
       end
     end
-    render json: @group, :include => {:users => {:only =>:name}}, status: :created
-    # redirect_to groups_path
+      render json: @group, :include => {:users => {:only =>:name}}, status: :created
+      # redirect_to groups_path
   end
 
   def edit

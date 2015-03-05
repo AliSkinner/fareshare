@@ -1,3 +1,4 @@
+
 function createGroup(){
 
   var $name = $('#group_name').val();
