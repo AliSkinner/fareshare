@@ -1,7 +1,7 @@
 .container
   %h1 Fareshare Group Page
+= form_for @group, :html => {:class => "form-horizontal"} do |f|
 
-= form_for(@group) do |f|
       
   %p
     .field
@@ -15,11 +15,13 @@
       %br
       = f.text_area :description
 
-  %p
-    .field
-    - User.all.each do |user|
-      = check_box_tag "group[user_ids][]", user.id, @group.users.include?(user), id: "group_user_ids_#{user.id}"
-      = f.label :user_ids, user.name, for: "group_user_ids_#{user.id}"
+  .user-select
+    %p
+      .field
+      - User.all.each do |user|
+        .user-box
+          = check_box_tag "group[user_ids][]", user.id, @group.users.include?(user), id: "group_user_ids_#{user.id}"
+          = f.label :user_ids, user.name, for: "group_user_ids_#{user.id}"
   %p
     .field
       = f.hidden_field :created_by, value: current_user.id 

@@ -2,16 +2,6 @@
   background-color: rgb(181,212,48);
 }
 
-/*.welcome-container {
-  height: 100%;
-  width: 100%;
-  background: url('http://manvsdebt.com/wp-content/uploads/2012/05/bills-to-pay.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}*/
-
 .welcome-container {
   height: 100%;
   width: 100%;
@@ -24,6 +14,8 @@
 
 .title-page {
   /*opacity: .5;*/
-  background: black;
+  background: rgb(43,62,80);
   color: white;
+  padding: 15px;
 }
+
