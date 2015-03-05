@@ -46,32 +46,12 @@ $(function(){
   })
 })
 
-function userPayInvoiceShare(id, paid) {
+function userPayInvoice(id, paid, share) {
   $.ajax({
     url: "/allocations/" + id,
     method: 'PUT',
     dataType: 'json',
-    data: {allocation:{paid: paid}}
-  }).done(function(response) {
-    console.log(response);
-  })
-}
-function userPayInvoiceStatus(id, paid) {
-  $.ajax({
-    url: "/allocations/" + id,
-    method: 'PUT',
-    dataType: 'json',
-    data: {allocation:{paid: paid}}
-  }).done(function(response) {
-    console.log(response);
-  })
-}
-function userPayInvoiceStatus(id, amount) {
-  $.ajax({
-    url: "/groups/" + id,
-    method: 'PUT',
-    dataType: 'json',
-    data: {group:{amount: paid}}
+    data: {allocation:{paid: paid, share: share }}
   }).done(function(response) {
     console.log(response);
   })
@@ -85,12 +65,11 @@ $(function(){
     var allocation_id = $(allocation_id_row).text()
     var amount_owed_row = $(this).parent().parent().children()[5]
     var amount_owed = parseInt($(amount_owed_row).text())
-    var group_id_row = $(this).parent().parent().children()[3]
-    var group_id = parseInt($(group_id_row).text())
+    // var group_id_row = $(this).parent().parent().children()[3]
+    // var group_id = parseInt($(group_id_row).text())
     var paid = true;
     $(this).replaceWith("<td>Paid</td>")
-    userPayInvoiceStatus(allocation_id, paid);
-    userPayInvoiceShare(group_id,amount_owed)
+    userPayInvoice(allocation_id, paid, amount_owed);
   })
 })
 
