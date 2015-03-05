@@ -5,7 +5,7 @@
   %h3= mail_to @user.email
 
   .btn.btn-primary.btn-lg.green
-     = link_to "Create a New Group", groups_path
+    = link_to "Create a New Group", groups_path
 
   -if current_user.id == @user.id
     .user-groups
