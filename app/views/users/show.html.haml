@@ -15,7 +15,7 @@
           = link_to group.name, group_path(group)
         - if @total_share_amount != nil
         
-          %h3 Outstanding Invoices    |    Your Outstanding Balance: £ #{number_with_delimiter(@total_share_amount, :delimiter => ',')}
+          %h3 Outstanding Invoices    |    You Currently Owe: £ #{number_with_delimiter(@total_share_amount, :delimiter => ',')}
           
           %table.invoice-table
             %tr
