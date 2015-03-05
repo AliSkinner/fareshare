@@ -77,6 +77,12 @@ $(function(){
     $(this).replaceWith("<td>Paid</td>")
     userPayInvoice(allocation_id, paid, amount_owed);
   })
+  $(document).on('keypress', function(e){
+    if(e.keycode === 13){
+      e.preventDefault;
+    }
+  })
+  
 })
 
 
