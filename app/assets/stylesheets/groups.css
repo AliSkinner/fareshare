@@ -2,9 +2,14 @@
   display: none;
 }
 
+.group-form {
+  margin: 25px;
+}
+
 .user-select {  
   border: 1px solid white;
   padding: 5px;
+  width: 40%;
 }
 
 .user-box {

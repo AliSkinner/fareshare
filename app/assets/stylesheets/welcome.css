@@ -1,5 +1,6 @@
 .green {
   background-color: rgb(181,212,48);
+  border-radius: 10px;
 }
 
 .welcome-container {

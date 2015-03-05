@@ -1,6 +1,12 @@
 .profile {
   text-align: center;
 }
+
+.groupss {
+  border: 1px solid white;
+
+}
+
 .invoice-table {
   border: 1px solid white;
   margin:0 auto;
@@ -8,8 +14,13 @@
   font-size: 18px;
   margin-bottom: 30px;
 
+  tr {
+    margin-left: 10px;
+  }
+
   td, th {
     padding: 5px;
     text-align: center;
   }
 }
+

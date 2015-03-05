@@ -10,10 +10,10 @@
     -if @user.id == current_user.id
       .user-groups
         - @user.groups.each do |group|
-          %p.groups= link_to group.name, group_path(group)
+          .groupss
+            %p.groups= link_to group.name, group_path(group)
         - if @total_share_amount != nil
           %p Your Outstanding Balance: £ #{number_with_delimiter(@total_share_amount, :delimiter => ',')}
-          %p Balance: #{@total_share_amount }
   
           %h3 Outstanding Invoices
       
