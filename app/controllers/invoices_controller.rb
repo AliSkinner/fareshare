@@ -30,10 +30,8 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     amount = @invoice.amount
     @invoice.update(invoice_params)
-    
     new_balance = @invoice.group.balance - amount
-
-    # new_balance = @invoice.group.balance - amount
+    
     @invoice.group.update_balance(new_balance)
     render json: new_balance, status: :created
     # render json: @invoice, status: :created
