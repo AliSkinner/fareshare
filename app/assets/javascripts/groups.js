@@ -68,8 +68,15 @@ $(function(){
     var id = $(this).data("id");
     var paid = true; 
     var amount = $(this).data("amount");
-    $(this).replaceWith("<td>Paid</td>")
-    payInvoice(id, paid, amount);
+    var available_balance = $balance = parseInt($('#updated-bank-balance').text())
+       if(amount <= available_balance) {
+         console.log(available_balance)
+         $(this).replaceWith("<td>Paid</td>")
+         payInvoice(id, paid, amount);
+         } else {
+           $(".error-messages").text("You need to bill your members.  You don't have enough funds to pay this bill").fadeIn();
+         }
+
   })
 })
 

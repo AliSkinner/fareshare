@@ -21,6 +21,7 @@ $(function (){
       $form = $(this)
         createAllocation($form); 
     })
+    window.location = window.location.origin + "/groups" + "/" + $('.group_id').text()
   })
 })
 

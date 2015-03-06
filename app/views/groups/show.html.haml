@@ -14,13 +14,18 @@
           %td.email
             / %i.fa.fa-envelope-o
             = mail_to user.email
+    - if current_user.id == @leader_id
+      .btn.btn-primary.btn-lg.green
+        = link_to "Add a new Invoice to the Group's Accounts", new_invoice_path
+
     -if @total_amount != nil
-      %h3
-        Your total amount owed is: £ 
-        %span.total_invoices_amount #{@total_amount}
+      / %h3
+      /   Your total amount owed is: £ 
+      /   %span.total_invoices_amount #{@total_amount}
       %h3 
         The Funds you have available are: £
-        %span.group_balance #{@group.balance}
+        %span.group_balance#updated-bank-balance #{@group.balance}
+        .error-messages
       %table.invoice-table
         %tr
           %th Invoice

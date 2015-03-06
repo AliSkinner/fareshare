@@ -1,3 +1,11 @@
 .hidden {
   display: none;
 }
+
+#allocation-master {
+  color: rgb(43,62,80);
+}
+
+#invoice-master {
+  color: rgb(43,62,80);
+}

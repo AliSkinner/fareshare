@@ -41,6 +41,7 @@ class GroupsController < ApplicationController
     unpaid_invoice_amounts = unpaid_invoice_not_nil.map {|invoice| invoice.amount}
     @total_amount = unpaid_invoice_amounts.reduce(:+) 
     @balance = @group.balance
+    @leader_id = @group.created_by
 
   end
 
