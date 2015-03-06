@@ -1,0 +1,62 @@
+.hidden {
+  display: none;
+}
+
+.group-form {
+  margin: 25px;
+  /*width: 70%;*/
+}
+
+.user-select {  
+  border: 1px solid white;
+  padding: 5px;
+  width: 40%;
+}
+
+.user-box {
+  display: inline-block;
+  padding: 5px;
+}
+
+.grav {
+  height: 40px;
+  width: 40px;
+}
+
+.group {
+  display: inline-block;
+  max-width: 60%;
+}
+
+.group-table {
+  width: 50%;
+  margin-left: 25%;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.group-table tr{
+  margin-bottom:50px;
+}
+
+.group-table td {
+  padding: 10px;
+  // width:auto;
+}
+
+.email {
+  width:33.33%;
+  // text-align: right;
+  text-align: center;
+
+}
+
+.delete {
+  color:rgb(43,62,80);
+}
+
+.pay-invoice {
+  color:rgb(43,62,80);
+  margin-right:5px;
+  margin-bottom: 5px;
+}

@@ -1,19 +1,20 @@
 .green {
   background-color: rgb(181,212,48);
+  border-radius: 10px;
 }
 
 .welcome-container {
   height: 100%;
   width: 100%;
-  background: url('http://realfoodeater.com/wp-content/uploads/2014/03/stack-of-papers.jpg') no-repeat center center fixed; 
+  background: url('stack-of-papers.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  margin-top: 150px;
 }
 
 .title-page {
-  /*opacity: .5;*/
   background: rgb(43,62,80);
   color: white;
   padding: 15px;

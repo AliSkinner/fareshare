@@ -55,6 +55,7 @@ function payInvoice(id, paid, amount) {
 
 $(document).ready(function(){
   // console.log("hello")
+
   $('#new_group').on('submit', function(e){
     e.preventDefault();
     createGroup();

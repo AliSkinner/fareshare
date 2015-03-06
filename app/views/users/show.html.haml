@@ -9,15 +9,15 @@
       .btn.btn-primary.btn-lg.green
         = link_to "Create a New Group", groups_path
       .user-groups
+      %h4 My Groups
+      .groups
         - @user.groups.each do |group|
-          %p.groups= link_to group.name, group_path(group)
+          = link_to group.name, group_path(group)
+          |
         - if @total_share_amount != nil
-          %p Your Outstanding Balance: £ #{number_with_delimiter(@total_share_amount, :delimiter => ',')}
-          .line
-          %p Balance: #{@total_share_amount }
-  
-          %h3 Outstanding Invoices
-      
+        
+          %h3 Outstanding Invoices    |    You Currently Owe: £ #{number_with_delimiter(@total_share_amount, :delimiter => ',')}
+          
           %table.invoice-table
             %tr
               %th Invoice

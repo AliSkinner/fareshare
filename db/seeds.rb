@@ -20,6 +20,17 @@ u8 = User.create(email: 'barrygrey@email.com', password: 'password', password_co
 u9 = User.create(email: 'sarahsmithson@email.com', password: 'password', password_confirmation: 'password',name: "Sarah Smithson", balance: 0)
 u10 = User.create(email: 'jennyjackson@email.com', password: 'password', password_confirmation: 'password',name: "Jenny Jackson", balance: 0)
 
+u11 = User.create(email: 'jerryslick@email.com', password: 'password', password_confirmation: 'password',name: "Jerry Slick", balance: 0)
+u12 = User.create(email: 'martinwalnut@email.com', password: 'password', password_confirmation: 'password',name: "Martin Walnut", balance: 0)
+u13 = User.create(email: 'gordongimpfield@email.com', password: 'password', password_confirmation: 'password',name: "Gordon Gimpfield", balance: 0)
+u14 = User.create(email: 'henry@email.com', password: 'password', password_confirmation: 'password',name: "Henry Dryheave", balance: 0)
+u15 = User.create(email: 'johnkimble@email.com', password: 'password', password_confirmation: 'password',name: "John Kimble", balance: 0)
+u16 = User.create(email: 'snakepliskin@email.com', password: 'password', password_confirmation: 'password',name: "Snake Pliskin", balance: 0)
+u17 = User.create(email: 'douglasdarksneeze@email.com', password: 'password', password_confirmation: 'password',name: "Douglas Darksneeze", balance: 0)
+u18 = User.create(email: 'johnnyjipsmith@email.com', password: 'password', password_confirmation: 'password',name: "Johnny Jipsmith", balance: 0)
+u19 = User.create(email: 'amandabillwipe@email.com', password: 'password', password_confirmation: 'password',name: "Amanda Billwipe", balance: 0)
+u20 = User.create(email: 'terryswitchpence@email.com', password: 'password', password_confirmation: 'password',name: "Terry Switchpence", balance: 0)
+
 g1 = Group.create(name: "Student House", created_by: u4.id, balance:15000)
 g2 = Group.create(name: "Saturday Night", created_by: u1.id, balance:3000)
 g3 = Group.create(name: "Holiday")
@@ -55,15 +66,15 @@ i22 = Invoice.create(name: "Food", amount: 500, group_id: g8.id, paid: false)
 i23 = Invoice.create(name: "Electricity", amount: 200, group_id: g8.id, paid: false)
 i24 = Invoice.create(name: "Car", amount: 300, group_id: g8.id, paid: false)
 
-g1.users << [u4, u2, u3]
-g2.users << [u4, u5, u6]
-g3.users << [u4, u8]
-g4.users << [u4, u10]
-g5.users << [u4, u7, u6]
-g6.users << [u4, u1, u3, u7]
-g7.users << [u4, u10, u9]
-g8.users << [u4]
-g9.users << [u4, u1, u8, u6, u10]
+g1.users << [u4, u2, u3, u11, u12]
+g2.users << [u4, u5, u6, u11, u12]
+g3.users << [u4, u8, u13, u14]
+g4.users << [u4, u10, u13, u14]
+g5.users << [u4, u7, u6,u15, u16]
+g6.users << [u4, u1, u3, u7,u15, u16]
+g7.users << [u4, u10, u9, u17, u18]
+g8.users << [u4, u17, u18]
+g9.users << [u4, u1, u8, u6, u10, u19, u20]
 
 a1 = Allocation.create(invoice_id: i1.id, user_id: u4.id, share: 200, paid: false)
 a2 = Allocation.create(invoice_id: i1.id, user_id: u2.id, share: 150, paid: false)

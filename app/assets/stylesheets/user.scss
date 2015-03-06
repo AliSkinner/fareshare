@@ -1,6 +1,13 @@
 .profile {
   text-align: center;
+  // max-width: 70%;
 }
+
+.groups {
+  max-width: 60%;
+  margin-left: 20%;
+}
+
 .invoice-table {
   border: 1px solid white;
   margin:0 auto;
@@ -8,12 +15,21 @@
   font-size: 18px;
   margin-bottom: 30px;
 
+  tr {
+    margin-left: 10px;
+  }
+
   td, th {
     padding: 5px;
     text-align: center;
   }
 }
 
+.pay-user-invoice {
+  color:rgb(43,62,80);
+  margin-right:5px;
+  margin-bottom: 5px;
+}
 .line {
   border: 1px solid white;
 }
