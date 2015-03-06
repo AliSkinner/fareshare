@@ -4,13 +4,16 @@
 
 .group-form {
   margin: 25px;
-  /*width: 70%;*/
+  float:left;
+  width: 40%;
+  display: inline-block;
 }
 
 .user-select {  
   border: 1px solid white;
   padding: 5px;
-  width: 40%;
+  width: 250%;
+  // display:inline;
 }
 
 .user-box {
@@ -59,4 +62,11 @@
   color:rgb(43,62,80);
   margin-right:5px;
   margin-bottom: 5px;
+}
+
+.created-group {
+  float:right;
+  width: 40%;
+  // clear: both;
+  display: inline-block;
 }

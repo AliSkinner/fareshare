@@ -26,13 +26,13 @@ function createGroup(){
     }
   }).done(function(response){
     
-    $('<h2> Your group ' + response.name + ' is created. <button class="delete" data-id='+ response.id +'>Delete</button></h2>').appendTo('h2.new-group')
-    $('<p>' + response.description + '</p>' ).appendTo('h2.new-group')
-    $('<a href="/groups/'  + response.id + '">check out the group</a>').appendTo('h2.new-group')
+    $('<h2> Your group ' + response.name + ' is created. <button class="delete" data-id='+ response.id +'>Delete</button></h2>').appendTo('.created-group ')
+    $('<p>' + response.description + '</p>' ).appendTo('.created-group ')
+    $('<a href="/groups/'  + response.id + '">check out the group</a>').appendTo('.created-group ')
   
     $.each(response.users, function(index, user){
  
-    $('<p>' + user.name + '</p>').appendTo('h2.new-group')
+    $('<p>' + user.name + '</p>').appendTo('.created-group ')
    });
   })
 }

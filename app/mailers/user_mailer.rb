@@ -10,7 +10,7 @@ class UserMailer < ApplicationMailer
   def invoice_create(group)
     @group = group
     @group.users.each do |user|
-      mail(to: user.email, subject: "Thanks For Registering!") do |format|
+      mail(to: user.email, subject: "You have a new Invoice!") do |format|
         format.text
         format.html { render locals: { user: user } }
       end
