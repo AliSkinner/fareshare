@@ -60,8 +60,7 @@ $(document).ready(function(){
     createGroup();
   })
   $('.pay-invoice').on('click', function(e){
-    e.preventDefault();
-      
+    e.preventDefault();  
     // $balance = parseInt($('.group_balance').text())
     // $owed = parseInt($('.total-invoices-amount').text()) 
     // $owed = parseInt($('.total_invoices_amount').text())
@@ -71,18 +70,12 @@ $(document).ready(function(){
     var amount = $(this).data("amount");
     console.log(amount)
     var available_balance = $balance = parseInt($('#updated-bank-balance').text())
-    // var amount_as_Int = parseInt(amount).text()
     if(amount <= available_balance) {
       console.log(available_balance)
       $(this).replaceWith("<td>Paid</td>")
       payInvoice(id, paid, amount);
       } else {
-        // alert('Your Group does not have enough funds to pay. Please contact your group members to pay their bills')
-        // render html: "<span>you need to bill your members</span>".html_safe
         $(".error-messages").text("You need to bill your members.  You don't have enough funds to pay this bill").fadeIn();
-        // $(".error-messages").empty().fadeOut();
-        // $('<p>you need to bill your members before you can pay this invoice</p>')appendTo('#updated-bank-balance')
-        // console.log()
       }
     // }
     // else {
