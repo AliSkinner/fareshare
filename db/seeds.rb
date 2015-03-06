@@ -6,9 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
-g1 = Group.create(name: "Student House")
-g2 = Group.create(name: "Saturday Night")
+g1 = Group.create(name: "Student House", created_by: u4.id, balance:15000)
+g2 = Group.create(name: "Saturday Night", created_by: u1.id, balance:3000)
 g3 = Group.create(name: "Holiday")
 g4 = Group.create(name: "Birthday Party")
 g5 = Group.create(name: "Retirement Party")
